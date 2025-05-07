@@ -73,6 +73,68 @@ class Solver:
         solution.calculate_fitness_score(data.scores)
         return solution
 
+    def feature_based_tabu_search(self, initial_solution, data, tabu_max_len=10, n=5, max_iterations=100):
+        S = copy.deepcopy(initial_solution)
+        S.calculate_fitness_score(data.scores)
+        Best = copy.deepcopy(S)
+ 
+        L = deque(maxlen=tabu_max_len)  # Stores (move_signature, timestamp)
+        tabu_set = set()
+        c = 0
+ 
+        # Define tweak functions that also return a move signature
+        tweak_functions = [
+            self.tweak_solution_swap_last_book_tabu,
+            self.tweak_solution_swap_same_books_tabu,
+            self.tweak_solution_swap_signed_tabu,
+            self.tweak_solution_swap_signed_with_unsigned_tabu,
+            self.tweak_solution_insert_library_tabu,
+            self.tweak_solution_swap_neighbor_libraries_tabu
+        ]
+ 
+        def tweak_avoiding_tabu(S_ref, L_set):
+            max_attempts = 10
+            for _ in range(max_attempts):
+                tweak = random.choice(tweak_functions)
+                try:
+                    S_copy = copy.deepcopy(S_ref)
+                    R, move_signature = tweak(S_copy, data)
+                    if move_signature not in L_set:
+                        return R, move_signature
+                except:
+                    continue
+            # fallback
+            fallback_copy = copy.deepcopy(S_ref)
+            return fallback_copy, ('fallback',)
+ 
+        for iteration in range(max_iterations):
+            c += 1
+ 
+            # Clean old tabu entries
+            L = deque([(move, ts) for move, ts in L if c - ts <= tabu_max_len], maxlen=tabu_max_len)
+            tabu_set = set(m for m, _ in L)
+ 
+            R, move_R = tweak_avoiding_tabu(S, tabu_set)
+ 
+            for _ in range(n - 1):
+                W, move_W = tweak_avoiding_tabu(S, tabu_set)
+                if W.fitness_score > R.fitness_score:
+                    R = W
+                    move_R = move_W
+ 
+            if R.fitness_score > S.fitness_score:
+                S = R
+                L.append((move_R, c))
+                tabu_set.add(move_R)
+ 
+                if S.fitness_score > Best.fitness_score:
+                    Best = copy.deepcopy(S)
+ 
+            # Optional debug:
+            # print(f"Iter {iteration}: Move = {move_R}, Current = {S.fitness_score}, Best = {Best.fitness_score}")
+ 
+        return Best 
+    
     def generate_initial_solution_grasp(self, data, p=0.05, max_time=60):
         """
         Generate an initial solution using a GRASP-like approach:
