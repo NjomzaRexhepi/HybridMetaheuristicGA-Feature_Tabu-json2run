@@ -37,53 +37,121 @@ class GeneticAlgorithmSolver:
             """Generate initial solution using GRASP"""
             return self.solver.generate_initial_solution_grasp(instance, max_time=30)
     
+        # def solve(self) -> Solution:
+        #     population = self.initialize_population(self.initial_solution)
+        #     best_solution = min(population, key=lambda x: x.fitness_score)
+        #     best_score = best_solution.fitness_score
+
+        #     no_improvement_counter = 0
+        #     patience = 10  # adjustable
+
+        #     for generation in range(self.population_size):
+        #         print(f"Gen {generation}: Best fitness = {best_score}")
+
+        #         new_population = [best_solution]  # Elitism
+
+        #         while len(new_population) < self.population_size:
+        #             parent1 = self.tournament_select(population)
+        #             parent2 = self.tournament_select(population)
+
+        #             offspring1, offspring2 = self.crossover(parent1, parent2)
+
+        #             for offspring in (offspring1, offspring2):
+        #                 if random.random() < self.mutation_prob:
+        #                     offspring = self.solver.feature_based_tabu_search(
+        #                         offspring, self.instance, max_iterations=self.hill_climbing_steps
+        #                     )
+        #                 new_population.append(offspring)
+
+        #         population = new_population[:self.population_size]
+        #         current_best = min(population, key=lambda x: x.fitness_score)
+
+        #         if current_best.fitness_score < best_score:
+        #             best_solution = current_best
+        #             best_score = current_best.fitness_score
+        #             no_improvement_counter = 0
+        #         else:
+        #             no_improvement_counter += 1
+
+        #         if no_improvement_counter >= patience:
+        #             print(f"Early stopping: No improvement for {patience} generations.")
+        #             break
+
+        #     return best_solution
+
         def solve(self) -> Solution:
-            # Initialize population with slight variations of initial solution
+            # Initialize population
             population = self.initialize_population(self.initial_solution)
-    
-            best_solution = max(population, key=lambda x: x.fitness_score)  # Track the best solution
-    
-            for generation in range(self.population_size):  # Max generations
-                # Evaluate population: use the best_solution instead of sorting the entire population
+            best_solution = min(population, key=lambda x: x.fitness_score)
+
+            # Trackers
+            best_fitness = best_solution.fitness_score
+            stagnation_counter = 0
+            max_stagnation = 10
+            elite_count = 2
+
+            for generation in range(self.population_size * 3):  # Allow more generations
                 print(f"Gen {generation}: Best fitness = {best_solution.fitness_score}")
-    
-                # Create new generation
-                new_population = [best_solution]  # Keep the best solution
-    
+
+                # Sort population by fitness (descending)
+                population.sort(key=lambda x: x.fitness_score, reverse=True)
+
+                # Keep elites
+                new_population = population[:elite_count]
+
+                # Adaptive mutation probability (more exploration early on)
+                mutation_prob = min(0.05, 1.0 - generation / (self.population_size * 2))
+
+                # Generate rest of population
                 while len(new_population) < self.population_size:
-                    # Selection
-                    parent1 = self.tournament_select(population)
-                    parent2 = self.tournament_select(population)
-    
+                    # Hybrid parent selection
+                    if random.random() < 0.8:
+                        parent1 = self.tournament_select(population)
+                        parent2 = self.tournament_select(population)
+                    else:
+                        parent1 = random.choice(population)
+                        parent2 = random.choice(population)
+
                     # Crossover
                     offspring1, offspring2 = self.crossover(parent1, parent2)
-    
-                    # Apply mutation with a smaller probability to avoid costly operations
-                    if random.random() < self.mutation_prob:
+
+                    # Mutate offspring with adaptive probability
+                    if random.random() < mutation_prob:
                         offspring1 = self.solver.feature_based_tabu_search(
                             offspring1, self.instance, max_iterations=self.hill_climbing_steps
                         )
-    
-                    if random.random() < self.mutation_prob:
+
+                    if random.random() < mutation_prob:
                         offspring2 = self.solver.feature_based_tabu_search(
                             offspring2, self.instance, max_iterations=self.hill_climbing_steps
                         )
-    
-                    # Add offspring to the new population
+
                     new_population.extend([offspring1, offspring2])
-    
-                # Limit population size (trim excess individuals)
+
+                # Trim to population size
                 population = new_population[:self.population_size]
-    
-                # Update the best solution
-                best_solution = max(population, key=lambda x: x.fitness_score)
-    
-                # Early stopping condition: check if no significant improvement is made in X generations
-                if generation > 10 and best_solution.fitness_score == max(population, key=lambda x: x.fitness_score).fitness_score:
-                    print(f"Early stopping: No significant improvement in generation {generation}")
+
+                # Track best solution
+                current_best = min(population, key=lambda x: x.fitness_score)
+                if current_best.fitness_score > best_fitness:
+                    best_solution = current_best
+                    best_fitness = current_best.fitness_score
+                    stagnation_counter = 0
+                else:
+                    stagnation_counter += 1
+
+                # Early stopping if no improvement
+                if stagnation_counter >= max_stagnation:
+                    print(f"Early stopping at generation {generation} due to stagnation.")
                     break
-    
+
+                # Optional: inject diversity if totally stuck
+                if generation > 0 and generation % 20 == 0:
+                    print("Injecting diversity...")
+                    population[-5:] = self.initialize_population(self.initial_solution)[:5]
+
             return best_solution
+
     
     
         def initialize_population(self, initial_solution: Solution) -> List[Solution]:
@@ -100,63 +168,46 @@ class GeneticAlgorithmSolver:
         def tournament_select(self, population: List[Solution]) -> Solution:
             """Select best solution out of random tournament_size candidates"""
             tournament = random.sample(population, self.tournament_size)
-            return max(tournament, key=lambda x: x.fitness_score)
+            return min(tournament, key=lambda x: x.fitness_score)
 
         def crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
-
-            def create_offspring(p1_signed, p2_signed):
+            def two_point_crossover(p1_signed, p2_signed):
                 size = len(p1_signed)
+                
+                if size < 2:
+                    # If crossover is not possible, just return a copy
+                    return p1_signed.copy()
 
-                # Convert to sets for O(1) lookups
-                p1_set = set(p1_signed)
-                p2_set = set(p2_signed)
+                point1 = random.randint(0, size - 2)
+                point2 = random.randint(point1 + 1, size - 1)
 
-                # Create quick lookup for used libraries
-                used_libs = set()
+                offspring = [None] * size
+                offspring[point1:point2] = p1_signed[point1:point2]
+                used = set(offspring[point1:point2])
 
-                # Initialize offspring with None
-                offspring_signed = [None] * size
-
-                # 1. Select random positions from parent1 (faster sampling)
-                copy_indices = random.sample(range(size), k=size // 2)
-                for idx in copy_indices:
-                    lib = p1_signed[idx]
-                    offspring_signed[idx] = lib
-                    used_libs.add(lib)
-
-                # 2. Prepare parent2 libraries not yet used
-                available_p2 = [lib for lib in p2_signed if lib not in used_libs]
-                p2_ptr = 0
-
-                # 3. Fill remaining positions
-                remaining_indices = [i for i, lib in enumerate(offspring_signed) if lib is None]
-
-                for idx in remaining_indices:
-                    if p2_ptr < len(available_p2):
-                        offspring_signed[idx] = available_p2[p2_ptr]
-                        p2_ptr += 1
-                    else:
-                        # Fallback to unused libraries from parent1
-                        remaining_p1 = [lib for lib in p1_signed if lib not in used_libs]
-                        if remaining_p1:
-                            offspring_signed[idx] = random.choice(remaining_p1)
-                            used_libs.add(offspring_signed[idx])
+                p2_idx = 0
+                for i in range(size):
+                    if offspring[i] is None:
+                        while p2_idx < size and p2_signed[p2_idx] in used:
+                            p2_idx += 1
+                        if p2_idx < size:
+                            offspring[i] = p2_signed[p2_idx]
+                            used.add(p2_signed[p2_idx])
+                            p2_idx += 1
                         else:
-                            # If all libraries are used (shouldn't happen with valid parents)
-                            unused = list(p1_set - used_libs)
-                            if unused:
-                                offspring_signed[idx] = random.choice(unused)
-                            else:
-                                raise ValueError("Crossover failed - no available libraries")
+                            # If no valid gene is left to copy (rare), fill with a placeholder
+                            offspring[i] = -1  # Or another appropriate fallback
 
-                return offspring_signed
+                return offspring
 
-            # Create base signed orders
             try:
-                offspring1_signed = create_offspring(parent1.signed_libraries, parent2.signed_libraries)
-                offspring2_signed = create_offspring(parent2.signed_libraries, parent1.signed_libraries)
+                if len(parent1.signed_libraries) < 2 or len(parent2.signed_libraries) < 2:
+                    print("Crossover skipped due to small parent size.")
+                    return parent1, parent2
 
-                # Create complete solutions
+                offspring1_signed = two_point_crossover(parent1.signed_libraries, parent2.signed_libraries)
+                offspring2_signed = two_point_crossover(parent2.signed_libraries, parent1.signed_libraries)
+
                 def build_solution(signed_libs):
                     scanned_books = set()
                     scanned_per_lib = {}
@@ -164,7 +215,13 @@ class GeneticAlgorithmSolver:
 
                     current_day = 0
                     for lib in signed_libs:
+                        # Validate library ID
+                        if lib < 0 or lib >= self.instance.num_libs:
+                            print(f"Warning: Invalid library id {lib} found in signed libraries. Skipping.")
+                            continue
+
                         lib_data = self.instance.libs[lib]
+
                         if current_day + lib_data.signup_days > self.instance.num_days:
                             continue
 
@@ -172,8 +229,18 @@ class GeneticAlgorithmSolver:
                         remaining_days = self.instance.num_days - current_day
                         max_books = remaining_days * lib_data.books_per_day
 
-                        available_books = [b.id for b in lib_data.books
-                                        if b.id not in scanned_books]
+                        # Validate books in this library
+                        invalid_books = [b.id for b in lib_data.books if b.id < 0 or b.id >= self.instance.num_books]
+                        if invalid_books:
+                            print(f"Warning: Library {lib} has invalid book IDs: {invalid_books}")
+
+                        # Filter only valid book IDs and exclude already scanned ones
+                        available_books = [
+                            b.id for b in lib_data.books
+                            if b.id not in scanned_books and 0 <= b.id < self.instance.num_books
+                        ]
+
+                        # Sort by score and pick top books
                         available_books.sort(key=lambda x: self.instance.scores[x], reverse=True)
                         selected = available_books[:max_books]
 
@@ -189,11 +256,8 @@ class GeneticAlgorithmSolver:
                         scanned_books=scanned_books
                     )
 
-                return (build_solution(offspring1_signed),
-                        build_solution(offspring2_signed))
+                return (build_solution(offspring1_signed), build_solution(offspring2_signed))
 
-            except ValueError as e:
-                # Fallback to parents if crossover fails
+            except Exception as e:
                 print(f"Crossover failed: {e}, returning parents")
                 return parent1, parent2
-
