@@ -37,120 +37,120 @@ class GeneticAlgorithmSolver:
             """Generate initial solution using GRASP"""
             return self.solver.generate_initial_solution_grasp(instance, max_time=30)
     
-        # def solve(self) -> Solution:
-        #     population = self.initialize_population(self.initial_solution)
-        #     best_solution = min(population, key=lambda x: x.fitness_score)
-        #     best_score = best_solution.fitness_score
-
-        #     no_improvement_counter = 0
-        #     patience = 10  # adjustable
-
-        #     for generation in range(self.population_size):
-        #         print(f"Gen {generation}: Best fitness = {best_score}")
-
-        #         new_population = [best_solution]  # Elitism
-
-        #         while len(new_population) < self.population_size:
-        #             parent1 = self.tournament_select(population)
-        #             parent2 = self.tournament_select(population)
-
-        #             offspring1, offspring2 = self.crossover(parent1, parent2)
-
-        #             for offspring in (offspring1, offspring2):
-        #                 if random.random() < self.mutation_prob:
-        #                     offspring = self.solver.feature_based_tabu_search(
-        #                         offspring, self.instance, max_iterations=self.hill_climbing_steps
-        #                     )
-        #                 new_population.append(offspring)
-
-        #         population = new_population[:self.population_size]
-        #         current_best = min(population, key=lambda x: x.fitness_score)
-
-        #         if current_best.fitness_score < best_score:
-        #             best_solution = current_best
-        #             best_score = current_best.fitness_score
-        #             no_improvement_counter = 0
-        #         else:
-        #             no_improvement_counter += 1
-
-        #         if no_improvement_counter >= patience:
-        #             print(f"Early stopping: No improvement for {patience} generations.")
-        #             break
-
-        #     return best_solution
-
         def solve(self) -> Solution:
-            # Initialize population
             population = self.initialize_population(self.initial_solution)
             best_solution = min(population, key=lambda x: x.fitness_score)
+            best_score = best_solution.fitness_score
 
-            # Trackers
-            best_fitness = best_solution.fitness_score
-            stagnation_counter = 0
-            max_stagnation = 10
-            elite_count = 2
+            no_improvement_counter = 0
+            patience = 10  # adjustable
 
-            for generation in range(self.population_size * 3):  # Allow more generations
-                print(f"Gen {generation}: Best fitness = {best_solution.fitness_score}")
+            for generation in range(self.population_size):
+                print(f"Gen {generation}: Best fitness = {best_score}")
 
-                # Sort population by fitness (descending)
-                population.sort(key=lambda x: x.fitness_score, reverse=True)
+                new_population = [best_solution]  # Elitism
 
-                # Keep elites
-                new_population = population[:elite_count]
-
-                # Adaptive mutation probability (more exploration early on)
-                mutation_prob = min(0.05, 1.0 - generation / (self.population_size * 2))
-
-                # Generate rest of population
                 while len(new_population) < self.population_size:
-                    # Hybrid parent selection
-                    if random.random() < 0.8:
-                        parent1 = self.tournament_select(population)
-                        parent2 = self.tournament_select(population)
-                    else:
-                        parent1 = random.choice(population)
-                        parent2 = random.choice(population)
+                    parent1 = self.tournament_select(population)
+                    parent2 = self.tournament_select(population)
 
-                    # Crossover
                     offspring1, offspring2 = self.crossover(parent1, parent2)
 
-                    # Mutate offspring with adaptive probability
-                    if random.random() < mutation_prob:
-                        offspring1 = self.solver.feature_based_tabu_search(
-                            offspring1, self.instance, max_iterations=self.hill_climbing_steps
-                        )
+                    for offspring in (offspring1, offspring2):
+                        if random.random() < self.mutation_prob:
+                            offspring = self.solver.feature_based_tabu_search(
+                                offspring, self.instance, max_iterations=self.hill_climbing_steps
+                            )
+                        new_population.append(offspring)
 
-                    if random.random() < mutation_prob:
-                        offspring2 = self.solver.feature_based_tabu_search(
-                            offspring2, self.instance, max_iterations=self.hill_climbing_steps
-                        )
-
-                    new_population.extend([offspring1, offspring2])
-
-                # Trim to population size
                 population = new_population[:self.population_size]
-
-                # Track best solution
                 current_best = min(population, key=lambda x: x.fitness_score)
-                if current_best.fitness_score > best_fitness:
-                    best_solution = current_best
-                    best_fitness = current_best.fitness_score
-                    stagnation_counter = 0
-                else:
-                    stagnation_counter += 1
 
-                # Early stopping if no improvement
-                if stagnation_counter >= max_stagnation:
-                    print(f"Early stopping at generation {generation} due to stagnation.")
+                if current_best.fitness_score < best_score:
+                    best_solution = current_best
+                    best_score = current_best.fitness_score
+                    no_improvement_counter = 0
+                else:
+                    no_improvement_counter += 1
+
+                if no_improvement_counter >= patience:
+                    print(f"Early stopping: No improvement for {patience} generations.")
                     break
 
-                # Optional: inject diversity if totally stuck
-                if generation > 0 and generation % 20 == 0:
-                    print("Injecting diversity...")
-                    population[-5:] = self.initialize_population(self.initial_solution)[:5]
-
             return best_solution
+
+        # def solve(self) -> Solution:
+        #     # Initialize population
+        #     population = self.initialize_population(self.initial_solution)
+        #     best_solution = min(population, key=lambda x: x.fitness_score)
+
+        #     # Trackers
+        #     best_fitness = best_solution.fitness_score
+        #     stagnation_counter = 0
+        #     max_stagnation = 10
+        #     elite_count = 2
+
+        #     for generation in range(self.population_size * 3):  # Allow more generations
+        #         print(f"Gen {generation}: Best fitness = {best_solution.fitness_score}")
+
+        #         # Sort population by fitness (descending)
+        #         population.sort(key=lambda x: x.fitness_score, reverse=True)
+
+        #         # Keep elites
+        #         new_population = population[:elite_count]
+
+        #         # Adaptive mutation probability (more exploration early on)
+        #         mutation_prob = min(0.05, 1.0 - generation / (self.population_size * 2))
+
+        #         # Generate rest of population
+        #         while len(new_population) < self.population_size:
+        #             # Hybrid parent selection
+        #             if random.random() < 0.8:
+        #                 parent1 = self.tournament_select(population)
+        #                 parent2 = self.tournament_select(population)
+        #             else:
+        #                 parent1 = random.choice(population)
+        #                 parent2 = random.choice(population)
+
+        #             # Crossover
+        #             offspring1, offspring2 = self.crossover(parent1, parent2)
+
+        #             # Mutate offspring with adaptive probability
+        #             if random.random() < mutation_prob:
+        #                 offspring1 = self.solver.feature_based_tabu_search(
+        #                     offspring1, self.instance, max_iterations=self.hill_climbing_steps
+        #                 )
+
+        #             if random.random() < mutation_prob:
+        #                 offspring2 = self.solver.feature_based_tabu_search(
+        #                     offspring2, self.instance, max_iterations=self.hill_climbing_steps
+        #                 )
+
+        #             new_population.extend([offspring1, offspring2])
+
+        #         # Trim to population size
+        #         population = new_population[:self.population_size]
+
+        #         # Track best solution
+        #         current_best = min(population, key=lambda x: x.fitness_score)
+        #         if current_best.fitness_score > best_fitness:
+        #             best_solution = current_best
+        #             best_fitness = current_best.fitness_score
+        #             stagnation_counter = 0
+        #         else:
+        #             stagnation_counter += 1
+
+        #         # Early stopping if no improvement
+        #         if stagnation_counter >= max_stagnation:
+        #             print(f"Early stopping at generation {generation} due to stagnation.")
+        #             break
+
+        #         # Optional: inject diversity if totally stuck
+        #         if generation > 0 and generation % 20 == 0:
+        #             print("Injecting diversity...")
+        #             population[-5:] = self.initialize_population(self.initial_solution)[:5]
+
+        #     return best_solution
 
     
     
