@@ -28,9 +28,29 @@ Valid InstanceData object (parsed from input files)
 
 Initial Solution object (can be generated via GRASP)
 
-## Installation
-1. Clone the repository:
-   https://github.com/NjomzaRexhepi/HybridMetaheuristicGA-Feature_Tabu-json2run.git 
+### Hyperparameter Optimization
 
-Algorithms inspired by nature 2025 class repository available on https://github.com/ArianitHalimi/AIN_25
+We used [NEPS](https://github.com/automl/neps), a flexible and modular framework for neural architecture and hyperparameter search, to perform efficient hyperparameter optimization in our project. NEPS allowed us to easily define configuration spaces and utilize various search strategies.
+
+## Installation
+
+# Clone the repository:
+
+git clone https://github.com/NjomzaRexhepi/HybridMetaheuristicGA-Feature_Tabu-json2run.git
+cd HybridMetaheuristicGA-Feature_Tabu-json2run
+
+##(Optional) Create a virtual environment:
+
+conda create -n book_optimizer python=3.8
+conda activate book_optimizer
+
+# Install required libraries:
+
+pip install -r requirements.txt
+
+## Academic Reference
+
+This project is developed as part of the Algorithms Inspired by Nature 2025 course.
+
+Course repository: https://github.com/ArianitHalimi/AIN_25
 
