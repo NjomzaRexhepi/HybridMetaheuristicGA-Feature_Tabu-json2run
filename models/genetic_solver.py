@@ -28,6 +28,21 @@ class GeneticAlgorithmSolver:
             self.hill_climbing_steps = 100  # For mutation
             self.solver = Solver()
  
+
+        # Uncomment if you want to use neps and GPU
+        #  def __init__(self, instance: InstanceData, initial_solution: Solution,
+        #          population_size=50, mutation_prob=1,
+        #          hill_climbing_steps=100, tabu_length=10):
+        #     self.instance = instance
+        #     self.initial_solution = initial_solution
+        #     self.population_size = population_size
+        #     self.tournament_size = max(2, population_size // 5)  # Dynamic tournament size
+        #     self.mutation_prob = mutation_prob
+        #     self.hill_climbing_steps = hill_climbing_steps
+        #     self.tabu_length = tabu_length
+        #     self.solver = Solver()
+        #     self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
         def load(self, file_path):
             with open(file_path, 'r') as f:
                 data = json.load(f)
