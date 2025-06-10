@@ -29,7 +29,7 @@ class GeneticAlgorithmSolver:
             self.solver = Solver()
  
 
-        # Uncomment if you want to use neps and GPU
+        # TODO: Uncomment if you want to use neps and GPU
         #  def __init__(self, instance: InstanceData, initial_solution: Solution,
         #          population_size=50, mutation_prob=1,
         #          hill_climbing_steps=100, tabu_length=10):
