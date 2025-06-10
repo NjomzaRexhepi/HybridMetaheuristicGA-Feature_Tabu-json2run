@@ -54,7 +54,8 @@ class GeneticAlgorithmSolver:
     
         def solve(self) -> Solution:
             population = self.initialize_population(self.initial_solution)
-            best_solution = min(population, key=lambda x: x.fitness_score)
+            #best_solution = min(population, key=lambda x: x.fitness_score)
+            best_solution = max(population, key=lambda x: x.fitness_score)
             best_score = best_solution.fitness_score
 
             no_improvement_counter = 0
