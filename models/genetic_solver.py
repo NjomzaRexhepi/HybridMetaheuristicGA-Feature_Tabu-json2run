@@ -82,7 +82,8 @@ class GeneticAlgorithmSolver:
                 population = new_population[:self.population_size]
                 current_best = max(population, key=lambda x: x.fitness_score)
 
-                if current_best.fitness_score < best_score:
+                #if current_best.fitness_score < best_score: fixed 
+                if current_best.fitness_score > best_score:
                     best_solution = current_best
                     best_score = current_best.fitness_score
                     no_improvement_counter = 0
