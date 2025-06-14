@@ -23,6 +23,7 @@ The GeneticAlgorithmSolver class:<br>
   <li>Stops early if no improvement is observed over several generations.</li>
   <li>The solution encodes libraries to scan and books to select to maximize total score under given constraints.</li>
 </ul>
+
 ## Key Features
 
 - **Hybrid Approach**: Combines strengths of GA and Tabu Search
@@ -34,33 +35,27 @@ The GeneticAlgorithmSolver class:<br>
 ## Requirements
 Python: 3.8+<br>
 Dependencies:
-random
-json
-Modules: models, models.solver (containing InstanceData, Solution, and Solver classes)
-
-Input Data:
-
-Valid InstanceData object (parsed from input files)
-
-Initial Solution object (can be generated via GRASP)
+`random`
+`json`
+Modules: models, models.solver (containing InstanceData (parsed from input files), Solution (can be generated via GRASP), and Solver classes)
 
 ## Code Structure
 
 The `GeneticAlgorithmSolver` class implements a genetic algorithm combined with local search (Tabu Search) to efficiently solve the problem. Its structure is as follows:
 
-### `__init__` Method
+#### `__init__` Method
 Initializes the solver with:
 - The problem instance.
 - The initial solution.
 - Genetic algorithm parameters such as population size, mutation probability, tournament size, and hill climbing steps.
 
-### `load(file_path)` Method
+#### `load(file_path)` Method
 Loads problem-specific data from a JSON file to prepare the instance for solving.
 
-### `generate_initial_solution(instance)` Method
+#### `generate_initial_solution(instance)` Method
 Generates an initial feasible solution using the GRASP (Greedy Randomized Adaptive Search Procedure) technique, providing a solid starting point for the genetic algorithm.
 
-### `solve()` Method
+#### `solve()` Method
 The main loop of the genetic algorithm, which includes:
 - **Selection**
 - **Crossover**
@@ -68,16 +63,14 @@ The main loop of the genetic algorithm, which includes:
 - **Elitism (keeping the best solution)**
 - **Early stopping** based on the number of generations without improvement.
 
-### `initialize_population(initial_solution)` Method
+#### `initialize_population(initial_solution)` Method
 Creates the initial population by applying hill climbing to variations of the initial solution for diversity.
 
-### `tournament_select(population)` Method
+#### `tournament_select(population)` Method
 Performs tournament selection to choose parents for crossover, balancing exploration and exploitation.
 
-### `crossover(parent1, parent2)` Method
+#### `crossover(parent1, parent2)` Method
 Applies two-point crossover with validation to produce feasible and valid offspring solutions.
-
----
 
 ### Dependencies on `Solver` Class
 
