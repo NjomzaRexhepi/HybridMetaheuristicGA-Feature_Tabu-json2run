@@ -54,7 +54,7 @@ class GeneticAlgorithmSolver:
     
         def solve(self) -> Solution:
             population = self.initialize_population(self.initial_solution)
-            best_solution = min(population, key=lambda x: x.fitness_score)
+            best_solution = max(population, key=lambda x: x.fitness_score)
             best_score = best_solution.fitness_score
 
             no_improvement_counter = 0
@@ -108,7 +108,7 @@ class GeneticAlgorithmSolver:
         def tournament_select(self, population: List[Solution]) -> Solution:
             """Select best solution out of random tournament_size candidates"""
             tournament = random.sample(population, self.tournament_size)
-            return min(tournament, key=lambda x: x.fitness_score)
+            return max(tournament, key=lambda x: x.fitness_score)
 
         def crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
             def two_point_crossover(p1_signed, p2_signed):
