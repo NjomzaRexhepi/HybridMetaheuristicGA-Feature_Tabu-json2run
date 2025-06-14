@@ -729,7 +729,6 @@ class Solver:
         if best_book is None:
             return solution, None
 
-        # Clone solution (faster than deepcopy if you have a .clone() method)
         new_solution = solution.clone()
 
         new_solution.scanned_books_per_library[chosen_lib_id].remove(last_scanned_book)
@@ -750,7 +749,6 @@ class Solver:
         book_count = defaultdict(int)
         unscanned_books_per_library = {}
 
-        # Collect unscanned books per library and book count
         for library in data.libs:
             if library.id in solution.signed_libraries:
                 unsigned_books = []
@@ -808,7 +806,6 @@ class Solver:
         # Select a new library for the book
         new_library = random.choice(possible_libraries)
 
-        # Clone solution (faster than deepcopy if you have a .clone() method)
         new_solution = solution.clone()
 
         # Remove the book from the current library
@@ -854,7 +851,6 @@ class Solver:
 
         total_signed = len(local_signed_libs)
 
-        # Bias
         if bias_type == "favor_first_half":
             if random.random() < bias_ratio:
                 signed_idx = random.randint(0, total_signed // 2 - 1)
@@ -921,11 +917,9 @@ class Solver:
                 new_scanned_books_per_library[library.id] = available_books
                 scanned_books.update(available_books)
 
-        # Update solution
         new_solution = Solution(new_signed_libraries, local_unsigned_libs, new_scanned_books_per_library, scanned_books)
         new_solution.calculate_fitness_score(data.scores)
 
-        # Move signature (describes the swap action)
         move_signature = ('swap_signed_with_unsigned', signed_lib_id, unsigned_lib_id)
 
         return new_solution, move_signature
@@ -975,7 +969,6 @@ class Solver:
                 scanned_books.update(available_books)
                 curr_time += library.signup_days
 
-        # Create the new solution
         new_solution = Solution(
             signed_libraries,
             unsigned_libraries,
@@ -984,7 +977,6 @@ class Solver:
         )
         new_solution.calculate_fitness_score(data.scores)
 
-        # Move signature (describes the swap action)
         move_signature = ('swap_same_books', library_ids[idx1], library_ids[idx2])
 
         return new_solution, move_signature
