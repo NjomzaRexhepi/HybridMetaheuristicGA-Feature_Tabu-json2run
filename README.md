@@ -89,7 +89,7 @@ We used [NEPS](https://github.com/automl/neps), a flexible and modular framework
 git clone https://github.com/NjomzaRexhepi/HybridMetaheuristicGA-Feature_Tabu-json2run.git
 cd HybridMetaheuristicGA-Feature_Tabu-json2run
 
-##(Optional) Create a virtual environment:
+## (Optional) Create a virtual environment:
 
 conda create -n book_optimizer python=3.8
 conda activate book_optimizer
