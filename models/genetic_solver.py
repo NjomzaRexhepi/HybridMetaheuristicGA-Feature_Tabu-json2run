@@ -79,9 +79,10 @@ class GeneticAlgorithmSolver:
                         new_population.append(offspring)
 
                 population = new_population[:self.population_size]
-                current_best = min(population, key=lambda x: x.fitness_score)
+                population.sort(key=lambda x: x.fitness_score)
+                current_best = population[0]
 
-                if current_best.fitness_score < best_score:
+                if current_best is not best_solution:
                     best_solution = current_best
                     best_score = current_best.fitness_score
                     no_improvement_counter = 0
@@ -99,7 +100,6 @@ class GeneticAlgorithmSolver:
             population = [self.initial_solution]
     
             while len(population) < self.population_size:
-                # Create variant by shuffling some libraries
                 variant_fitness, variant = self.solver.hill_climbing_combined_w_initial_solution(initial_solution, self.instance, iterations=5)
                 population.append(variant)
     
@@ -115,7 +115,6 @@ class GeneticAlgorithmSolver:
                 size = len(p1_signed)
                 
                 if size < 2:
-                    # If crossover is not possible, just return a copy
                     return p1_signed.copy()
 
                 point1 = random.randint(0, size - 2)
