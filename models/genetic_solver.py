@@ -5,6 +5,7 @@ import json
 from models import InstanceData, Solution
 from models.solver import Solver
 import sys
+import torch
  
 class GeneticAlgorithmSolver:
         def __init__(self, instance: InstanceData, initial_solution: Solution):
@@ -17,12 +18,12 @@ class GeneticAlgorithmSolver:
             self.solver = Solver()
  
 
-        # TODO: Uncomment if you want to use neps and GPU
          
          #  This constructor sets up all the necessary configuration for running a genetic algorithm, including support for GPU acceleration if available. 
          #  The parameters are flexible, allowing for easy experimentation.
        
-        #  def __init__(self, instance: InstanceData, initial_solution: Solution,
+        # TODO: Uncomment if you want to use neps and GPU
+        # def __init__(self, instance: InstanceData, initial_solution: Solution,
         #          population_size=50, mutation_prob=1,
         #          hill_climbing_steps=100, tabu_length=10):
         #     self.instance = instance
@@ -96,7 +97,7 @@ class GeneticAlgorithmSolver:
                     parent1 = self.tournament_select(population)
                     parent2 = self.tournament_select(population)
 
-                    offspring1, offspring2 = self.crossover(parent1, parent2)
+                    offspring1, offspring2 = self.union_crossover(parent1, parent2)
 
                     for offspring in (offspring1, offspring2):
                         if random.random() < self.mutation_prob:
@@ -154,81 +155,132 @@ class GeneticAlgorithmSolver:
             tournament = random.sample(population, self.tournament_size)
             return max(tournament, key=lambda x: x.fitness_score)
 
-        def crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
-            """
-            Performs a two-point crossover operation between two parent solutions to generate two offspring solutions.
-            This method applies a two-point crossover on the `signed_libraries` attribute of each parent, ensuring that the offspring inherit a mix of library orderings from both parents while maintaining valid library indices and avoiding duplicates. After crossover, it reconstructs the offspring solutions by selecting libraries and books according to problem constraints, recalculates their fitness scores, and returns the resulting offspring.
-            Args:
-                parent1 (Solution): The first parent solution.
-                parent2 (Solution): The second parent solution.
-            Returns:
-                Tuple[Solution, Solution]: A tuple containing two offspring solutions generated from the parents. If crossover is not possible or fails, returns the original parents.
-            Notes:
-                - If either parent has fewer than two signed libraries, crossover is skipped and the parents are returned unchanged.
-                - If an exception occurs during crossover or offspring construction, the parents are returned after recalculating their fitness scores.
-            """
-            def two_point_crossover(p1_signed, p2_signed):
-                size = len(p1_signed)
+        # def crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
+        #     """
+        #     Performs a two-point crossover operation between two parent solutions to generate two offspring solutions.
+        #     This method applies a two-point crossover on the `signed_libraries` attribute of each parent, ensuring that the offspring inherit a mix of library orderings from both parents while maintaining valid library indices and avoiding duplicates. After crossover, it reconstructs the offspring solutions by selecting libraries and books according to problem constraints, recalculates their fitness scores, and returns the resulting offspring.
+        #     Args:
+        #         parent1 (Solution): The first parent solution.
+        #         parent2 (Solution): The second parent solution.
+        #     Returns:
+        #         Tuple[Solution, Solution]: A tuple containing two offspring solutions generated from the parents. If crossover is not possible or fails, returns the original parents.
+        #     Notes:
+        #         - If either parent has fewer than two signed libraries, crossover is skipped and the parents are returned unchanged.
+        #         - If an exception occurs during crossover or offspring construction, the parents are returned after recalculating their fitness scores.
+        #     """
+        #     def two_point_crossover(p1_signed, p2_signed):
+        #         size = len(p1_signed)
                 
-                if size < 2:
-                    return p1_signed.copy()
+        #         if size < 2:
+        #             return p1_signed.copy()
 
-                point1 = random.randint(0, size - 2)
-                point2 = random.randint(point1 + 1, size - 1)
+        #         point1 = random.randint(0, size - 2)
+        #         point2 = random.randint(point1 + 1, size - 1)
 
-                offspring = [None] * size
-                offspring[point1:point2] = p1_signed[point1:point2]
-                used = set(offspring[point1:point2])
+        #         offspring = [None] * size
+        #         offspring[point1:point2] = p1_signed[point1:point2]
+        #         used = set(offspring[point1:point2])
 
-                p2_idx = 0
-                for i in range(size):
-                    if offspring[i] is None:
-                        while p2_idx < size and p2_signed[p2_idx] in used:
-                            p2_idx += 1
-                        if p2_idx < size:
-                            offspring[i] = p2_signed[p2_idx]
-                            used.add(p2_signed[p2_idx])
-                            p2_idx += 1
-                        else:
-                            offspring[i] = -1  
+        #         p2_idx = 0
+        #         for i in range(size):
+        #             if offspring[i] is None:
+        #                 while p2_idx < size and p2_signed[p2_idx] in used:
+        #                     p2_idx += 1
+        #                 if p2_idx < size:
+        #                     offspring[i] = p2_signed[p2_idx]
+        #                     used.add(p2_signed[p2_idx])
+        #                     p2_idx += 1
+        #                 else:
+        #                     offspring[i] = -1  
 
-                return offspring
+        #         return offspring
 
+        #     try:
+        #         if len(parent1.signed_libraries) < 2 or len(parent2.signed_libraries) < 2:
+        #             print("Crossover skipped due to small parent size.")
+        #             return parent1, parent2
+
+        #         offspring1_signed = two_point_crossover(parent1.signed_libraries, parent2.signed_libraries)
+        #         offspring2_signed = two_point_crossover(parent2.signed_libraries, parent1.signed_libraries)
+
+        #         def build_solution(signed_libs):
+        #             scanned_books = set()
+        #             scanned_per_lib = {}
+        #             used_libs = []
+
+        #             current_day = 0
+        #             for lib in signed_libs:
+        #                 if lib < 0 or lib >= self.instance.num_libs:
+        #                     continue
+
+        #                 lib_data = self.instance.libs[lib]
+
+        #                 if current_day + lib_data.signup_days > self.instance.num_days:
+        #                     continue
+
+        #                 current_day += lib_data.signup_days
+        #                 remaining_days = self.instance.num_days - current_day
+        #                 max_books = remaining_days * lib_data.books_per_day
+
+        #                 available_books = [
+        #                     b.id for b in lib_data.books
+        #                     if b.id not in scanned_books and 0 <= b.id < self.instance.num_books
+        #                 ]
+
+        #                 available_books.sort(key=lambda x: self.instance.scores[x], reverse=True)
+        #                 selected = available_books[:max_books]
+
+        #                 if selected:
+        #                     scanned_books.update(selected)
+        #                     scanned_per_lib[lib] = selected
+        #                     used_libs.append(lib)
+
+        #             return Solution(
+        #                 signed_libs=used_libs,
+        #                 unsigned_libs=list(set(range(self.instance.num_libs)) - set(used_libs)),
+        #                 scanned_books_per_library=scanned_per_lib,
+        #                 scanned_books=scanned_books
+        #             )
+            
+        #         offspring1 = build_solution(offspring1_signed)
+        #         offspring2 = build_solution(offspring2_signed)
+                
+        #         offspring1.calculate_fitness_score(self.instance.scores)
+        #         offspring2.calculate_fitness_score(self.instance.scores)
+                
+        #         return (offspring1, offspring2)
+
+        #     except Exception as e:
+        #         print(f"Crossover failed: {e}, returning parents")
+        #         parent1.calculate_fitness_score(self.instance.scores)
+        #         parent2.calculate_fitness_score(self.instance.scores)
+        #         return parent1, parent2
+
+        def union_crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
             try:
-                if len(parent1.signed_libraries) < 2 or len(parent2.signed_libraries) < 2:
-                    print("Crossover skipped due to small parent size.")
-                    return parent1, parent2
-
-                offspring1_signed = two_point_crossover(parent1.signed_libraries, parent2.signed_libraries)
-                offspring2_signed = two_point_crossover(parent2.signed_libraries, parent1.signed_libraries)
+                all_libs = list(dict.fromkeys(parent1.signed_libraries + parent2.signed_libraries))
 
                 def build_solution(signed_libs):
                     scanned_books = set()
                     scanned_per_lib = {}
                     used_libs = []
-
                     current_day = 0
+
                     for lib in signed_libs:
                         if lib < 0 or lib >= self.instance.num_libs:
                             continue
-
                         lib_data = self.instance.libs[lib]
-
                         if current_day + lib_data.signup_days > self.instance.num_days:
                             continue
-
                         current_day += lib_data.signup_days
                         remaining_days = self.instance.num_days - current_day
                         max_books = remaining_days * lib_data.books_per_day
-
                         available_books = [
                             b.id for b in lib_data.books
                             if b.id not in scanned_books and 0 <= b.id < self.instance.num_books
                         ]
-
                         available_books.sort(key=lambda x: self.instance.scores[x], reverse=True)
                         selected = available_books[:max_books]
-
                         if selected:
                             scanned_books.update(selected)
                             scanned_per_lib[lib] = selected
@@ -240,17 +292,17 @@ class GeneticAlgorithmSolver:
                         scanned_books_per_library=scanned_per_lib,
                         scanned_books=scanned_books
                     )
-            
-                offspring1 = build_solution(offspring1_signed)
-                offspring2 = build_solution(offspring2_signed)
-                
+
+                offspring1 = build_solution(all_libs)
+                offspring2 = build_solution(all_libs[::-1])  # reverse for some diversity
+
                 offspring1.calculate_fitness_score(self.instance.scores)
                 offspring2.calculate_fitness_score(self.instance.scores)
-                
-                return (offspring1, offspring2)
+
+                return offspring1, offspring2
 
             except Exception as e:
-                print(f"Crossover failed: {e}, returning parents")
+                print(f"Union crossover failed: {e}, returning parents")
                 parent1.calculate_fitness_score(self.instance.scores)
                 parent2.calculate_fitness_score(self.instance.scores)
                 return parent1, parent2

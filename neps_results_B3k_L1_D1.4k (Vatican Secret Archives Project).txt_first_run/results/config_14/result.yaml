@@ -1,0 +1,10 @@
+cost: 20.797665119171143
+info_dict:
+  fitness_score: 2376550
+  hill_climbing_steps: 4
+  input_file: B3k_L1_D1.4k (Vatican Secret Archives Project).txt
+  mutation_prob: 0.48847261570698636
+  population_size: 72
+  runtime: 20.797665119171143
+  tabu_length: 3
+loss: 2376550.0

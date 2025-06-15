@@ -109,7 +109,7 @@ class Solution:
 #         score = 0
 #         for book in self.scanned_books:
 #             score += scores[book]
-#         self.fitness_score = score # qeta e kom ndryshu
+#         self.fitness_score = score 
 
 #     def calculate_delta_fitness(self, data, new_book_id, removed_book_id=None):
 #         """
