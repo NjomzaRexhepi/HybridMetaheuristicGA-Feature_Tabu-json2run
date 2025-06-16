@@ -1,0 +1,10 @@
+cost: 2.0493052005767822
+info_dict:
+  fitness_score: 6657416
+  hill_climbing_steps: 1
+  input_file: B18k_L50_D100.txt
+  mutation_prob: 0.05080146201291501
+  population_size: 11
+  runtime: 2.0493052005767822
+  tabu_length: 2
+loss: -6657416.0

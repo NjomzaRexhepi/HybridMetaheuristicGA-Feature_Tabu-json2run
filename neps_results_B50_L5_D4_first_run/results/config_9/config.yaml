@@ -1,0 +1,4 @@
+hill_climbing_steps: 10
+mutation_prob: 0.08184391434152419
+population_size: 66
+tabu_length: 7
