@@ -1,0 +1,10 @@
+cost: 3.957219123840332
+info_dict:
+  fitness_score: 3898
+  hill_climbing_steps: 15
+  input_file: B95_L5_D12.txt
+  mutation_prob: 0.029263551708775114
+  population_size: 480
+  runtime: 3.957219123840332
+  tabu_length: 19
+loss: -3898.0
