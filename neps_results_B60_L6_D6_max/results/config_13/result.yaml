@@ -1,0 +1,10 @@
+cost: 818.3276331424713
+info_dict:
+  fitness_score: 688
+  hill_climbing_steps: 99
+  input_file: B60_L6_D6.txt
+  mutation_prob: 0.7022263921119036
+  population_size: 452
+  runtime: 818.3276331424713
+  tabu_length: 2
+loss: -688.0
