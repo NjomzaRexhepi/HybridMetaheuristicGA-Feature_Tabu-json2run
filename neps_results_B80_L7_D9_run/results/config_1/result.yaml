@@ -1,0 +1,10 @@
+cost: 0.2100205421447754
+info_dict:
+  fitness_score: 2107
+  hill_climbing_steps: 19
+  input_file: B80_L7_D9.txt
+  mutation_prob: 0.039795522453352765
+  population_size: 33
+  runtime: 0.2100205421447754
+  tabu_length: 14
+loss: -2107.0
