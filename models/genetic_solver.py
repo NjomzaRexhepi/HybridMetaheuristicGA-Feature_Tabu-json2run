@@ -5,9 +5,11 @@ import json
 from models import InstanceData, Solution
 from models.solver import Solver
 import sys
-import torch
+
 import heapq
 from typing import Tuple
+
+# import torch
  
 class GeneticAlgorithmSolver:
         # def __init__(self, instance: InstanceData, initial_solution: Solution):
@@ -36,7 +38,7 @@ class GeneticAlgorithmSolver:
             self.hill_climbing_steps = hill_climbing_steps
             self.tabu_length = tabu_length
             self.solver = Solver()
-            self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+            # self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         def load(self, file_path):
             """
@@ -157,89 +159,140 @@ class GeneticAlgorithmSolver:
             """
             tournament = random.sample(population, self.tournament_size)
             return max(tournament, key=lambda x: x.fitness_score)
-
-        @staticmethod
-        def book_value(book_id, scores, book_rarity):
-            rarity = book_rarity[book_id]
-            return scores[book_id] / rarity if rarity > 0 else scores[book_id]
-
-        @staticmethod
-        def build_solution(signed_libs, scores, num_books, num_days, libs_data, total_libs_set, book_rarity):
-            scanned_books = set()
-            scanned_per_lib = {}
-            used_libs = []
-            current_day = 0
-
-            for lib in signed_libs:
-                if not (0 <= lib < len(libs_data)):
-                    continue
-
-                lib_data = libs_data[lib]
-                signup_days = lib_data.signup_days
-
-                if current_day + signup_days >= num_days:
-                    break  # Early termination
-
-                current_day += signup_days
-                remaining_days = num_days - current_day
-                max_books = remaining_days * lib_data.books_per_day
-
-                available_books = [
-                    b.id for b in lib_data.books
-                    if b.id not in scanned_books and 0 <= b.id < num_books
-                ]
-
-                if available_books:
-                    selected = heapq.nlargest(
-                        max_books,
-                        available_books,
-                        key=lambda x: GeneticAlgorithmSolver.book_value(x, scores, book_rarity)
-                    )
-                    scanned_books.update(selected)
-                    scanned_per_lib[lib] = selected
-                    used_libs.append(lib)
-
-            return Solution(
-                signed_libs=used_libs,
-                unsigned_libs=list(total_libs_set - set(used_libs)),
-                scanned_books_per_library=scanned_per_lib,
-                scanned_books=scanned_books
-            )
-
+        
         def union_crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
             try:
                 all_libs = list(dict.fromkeys(parent1.signed_libraries + parent2.signed_libraries))
-                total_libs_set = set(range(self.instance.num_libs))
-                scores = self.instance.scores
-                num_books = self.instance.num_books
-                num_days = self.instance.num_days
-                libs_data = self.instance.libs
 
-                # Compute book rarity
-                book_rarity = [0] * num_books
-                for lib in libs_data:
-                    for book in lib.books:
-                        book_rarity[book.id] += 1
+                def build_solution(signed_libs):
+                    scanned_books = set()
+                    scanned_per_lib = {}
+                    used_libs = []
+                    current_day = 0
 
-                def library_heuristic(lib_id):
-                    lib_data = libs_data[lib_id]
-                    potential_books = [b.id for b in lib_data.books]
-                    value = sum(GeneticAlgorithmSolver.book_value(b, scores, book_rarity) for b in potential_books)
-                    return value / lib_data.signup_days if lib_data.signup_days > 0 else value
+                    for lib in signed_libs:
+                        if lib < 0 or lib >= self.instance.num_libs:
+                            continue
+                        lib_data = self.instance.libs[lib]
+                        if current_day + lib_data.signup_days > self.instance.num_days:
+                            continue
+                        current_day += lib_data.signup_days
+                        remaining_days = self.instance.num_days - current_day
+                        max_books = remaining_days * lib_data.books_per_day
+                        available_books = [
+                            b.id for b in lib_data.books
+                            if b.id not in scanned_books and 0 <= b.id < self.instance.num_books
+                        ]
+                        available_books.sort(key=lambda x: self.instance.scores[x], reverse=True)
+                        selected = available_books[:max_books]
+                        if selected:
+                            scanned_books.update(selected)
+                            scanned_per_lib[lib] = selected
+                            used_libs.append(lib)
 
-                sorted_libs = sorted(all_libs, key=library_heuristic, reverse=True)
+                    return Solution(
+                        signed_libs=used_libs,
+                        unsigned_libs=list(set(range(self.instance.num_libs)) - set(used_libs)),
+                        scanned_books_per_library=scanned_per_lib,
+                        scanned_books=scanned_books
+                    )
 
-                offspring1 = GeneticAlgorithmSolver.build_solution(sorted_libs, scores, num_books, num_days, libs_data, total_libs_set, book_rarity)
-                offspring2 = GeneticAlgorithmSolver.build_solution(list(reversed(sorted_libs)), scores, num_books, num_days, libs_data, total_libs_set, book_rarity)
+                offspring1 = build_solution(all_libs)
+                offspring2 = build_solution(all_libs[::-1])  # reverse for some diversity
 
-                offspring1.calculate_fitness_score(scores)
-                offspring2.calculate_fitness_score(scores)
+                offspring1.calculate_fitness_score(self.instance.scores)
+                offspring2.calculate_fitness_score(self.instance.scores)
 
                 return offspring1, offspring2
 
             except Exception as e:
-                print(f"Crossover failed: {e}, returning parents")
-                # Ensure even failed crossovers return valid solutions
+                print(f"Union crossover failed: {e}, returning parents")
                 parent1.calculate_fitness_score(self.instance.scores)
                 parent2.calculate_fitness_score(self.instance.scores)
                 return parent1, parent2
+
+        # @staticmethod
+        # def book_value(book_id, scores, book_rarity):
+        #     rarity = book_rarity[book_id]
+        #     return scores[book_id] / rarity if rarity > 0 else scores[book_id]
+
+        # @staticmethod
+        # def build_solution(signed_libs, scores, num_books, num_days, libs_data, total_libs_set, book_rarity):
+        #     scanned_books = set()
+        #     scanned_per_lib = {}
+        #     used_libs = []
+        #     current_day = 0
+
+        #     for lib in signed_libs:
+        #         if not (0 <= lib < len(libs_data)):
+        #             continue
+
+        #         lib_data = libs_data[lib]
+        #         signup_days = lib_data.signup_days
+
+        #         if current_day + signup_days >= num_days:
+        #             break  # Early termination
+
+        #         current_day += signup_days
+        #         remaining_days = num_days - current_day
+        #         max_books = remaining_days * lib_data.books_per_day
+
+        #         available_books = [
+        #             b.id for b in lib_data.books
+        #             if b.id not in scanned_books and 0 <= b.id < num_books
+        #         ]
+
+        #         if available_books:
+        #             selected = heapq.nlargest(
+        #                 max_books,
+        #                 available_books,
+        #                 key=lambda x: GeneticAlgorithmSolver.book_value(x, scores, book_rarity)
+        #             )
+        #             scanned_books.update(selected)
+        #             scanned_per_lib[lib] = selected
+        #             used_libs.append(lib)
+
+        #     return Solution(
+        #         signed_libs=used_libs,
+        #         unsigned_libs=list(total_libs_set - set(used_libs)),
+        #         scanned_books_per_library=scanned_per_lib,
+        #         scanned_books=scanned_books
+        #     )
+
+        # def union_crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
+        #     try:
+        #         all_libs = list(dict.fromkeys(parent1.signed_libraries + parent2.signed_libraries))
+        #         total_libs_set = set(range(self.instance.num_libs))
+        #         scores = self.instance.scores
+        #         num_books = self.instance.num_books
+        #         num_days = self.instance.num_days
+        #         libs_data = self.instance.libs
+
+        #         # Compute book rarity
+        #         book_rarity = [0] * num_books
+        #         for lib in libs_data:
+        #             for book in lib.books:
+        #                 book_rarity[book.id] += 1
+
+        #         def library_heuristic(lib_id):
+        #             lib_data = libs_data[lib_id]
+        #             potential_books = [b.id for b in lib_data.books]
+        #             value = sum(GeneticAlgorithmSolver.book_value(b, scores, book_rarity) for b in potential_books)
+        #             return value / lib_data.signup_days if lib_data.signup_days > 0 else value
+
+        #         sorted_libs = sorted(all_libs, key=library_heuristic, reverse=True)
+
+        #         offspring1 = GeneticAlgorithmSolver.build_solution(sorted_libs, scores, num_books, num_days, libs_data, total_libs_set, book_rarity)
+        #         offspring2 = GeneticAlgorithmSolver.build_solution(list(reversed(sorted_libs)), scores, num_books, num_days, libs_data, total_libs_set, book_rarity)
+
+        #         offspring1.calculate_fitness_score(scores)
+        #         offspring2.calculate_fitness_score(scores)
+
+        #         return offspring1, offspring2
+
+        #     except Exception as e:
+        #         print(f"Crossover failed: {e}, returning parents")
+        #         # Ensure even failed crossovers return valid solutions
+        #         parent1.calculate_fitness_score(self.instance.scores)
+        #         parent2.calculate_fitness_score(self.instance.scores)
+        #         return parent1, parent2
