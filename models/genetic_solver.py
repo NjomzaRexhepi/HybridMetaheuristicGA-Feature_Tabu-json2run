@@ -163,48 +163,48 @@ class GeneticAlgorithmSolver:
             rarity = book_rarity[book_id]
             return scores[book_id] / rarity if rarity > 0 else scores[book_id]
 
-        # @staticmethod
-        # def build_solution(signed_libs, scores, num_books, num_days, libs_data, total_libs_set, book_rarity):
-        #     scanned_books = set()
-        #     scanned_per_lib = {}
-        #     used_libs = []
-        #     current_day = 0
+        @staticmethod
+        def build_solution(signed_libs, scores, num_books, num_days, libs_data, total_libs_set, book_rarity):
+            scanned_books = set()
+            scanned_per_lib = {}
+            used_libs = []
+            current_day = 0
 
-        #     for lib in signed_libs:
-        #         if not (0 <= lib < len(libs_data)):
-        #             continue
+            for lib in signed_libs:
+                if not (0 <= lib < len(libs_data)):
+                    continue
 
-        #         lib_data = libs_data[lib]
-        #         signup_days = lib_data.signup_days
+                lib_data = libs_data[lib]
+                signup_days = lib_data.signup_days
 
-        #         if current_day + signup_days >= num_days:
-        #             break  # Early termination
+                if current_day + signup_days >= num_days:
+                    break  # Early termination
 
-        #         current_day += signup_days
-        #         remaining_days = num_days - current_day
-        #         max_books = remaining_days * lib_data.books_per_day
+                current_day += signup_days
+                remaining_days = num_days - current_day
+                max_books = remaining_days * lib_data.books_per_day
 
-        #         available_books = [
-        #             b.id for b in lib_data.books
-        #             if b.id not in scanned_books and 0 <= b.id < num_books
-        #         ]
+                available_books = [
+                    b.id for b in lib_data.books
+                    if b.id not in scanned_books and 0 <= b.id < num_books
+                ]
 
-        #         if available_books:
-        #             selected = heapq.nlargest(
-        #                 max_books,
-        #                 available_books,
-        #                 key=lambda x: GeneticAlgorithmSolver.book_value(x, scores, book_rarity)
-        #             )
-        #             scanned_books.update(selected)
-        #             scanned_per_lib[lib] = selected
-        #             used_libs.append(lib)
+                if available_books:
+                    selected = heapq.nlargest(
+                        max_books,
+                        available_books,
+                        key=lambda x: GeneticAlgorithmSolver.book_value(x, scores, book_rarity)
+                    )
+                    scanned_books.update(selected)
+                    scanned_per_lib[lib] = selected
+                    used_libs.append(lib)
 
-        #     return Solution(
-        #         signed_libs=used_libs,
-        #         unsigned_libs=list(total_libs_set - set(used_libs)),
-        #         scanned_books_per_library=scanned_per_lib,
-        #         scanned_books=scanned_books
-        #     )
+            return Solution(
+                signed_libs=used_libs,
+                unsigned_libs=list(total_libs_set - set(used_libs)),
+                scanned_books_per_library=scanned_per_lib,
+                scanned_books=scanned_books
+            )
 
         # def union_crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
         #     try:
