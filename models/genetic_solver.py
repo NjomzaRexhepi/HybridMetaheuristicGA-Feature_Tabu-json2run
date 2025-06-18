@@ -206,40 +206,40 @@ class GeneticAlgorithmSolver:
                 scanned_books=scanned_books
             )
 
-        # def union_crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
-        #     try:
-        #         all_libs = list(dict.fromkeys(parent1.signed_libraries + parent2.signed_libraries))
-        #         total_libs_set = set(range(self.instance.num_libs))
-        #         scores = self.instance.scores
-        #         num_books = self.instance.num_books
-        #         num_days = self.instance.num_days
-        #         libs_data = self.instance.libs
+        def union_crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
+            try:
+                all_libs = list(dict.fromkeys(parent1.signed_libraries + parent2.signed_libraries))
+                total_libs_set = set(range(self.instance.num_libs))
+                scores = self.instance.scores
+                num_books = self.instance.num_books
+                num_days = self.instance.num_days
+                libs_data = self.instance.libs
 
-        #         # Compute book rarity
-        #         book_rarity = [0] * num_books
-        #         for lib in libs_data:
-        #             for book in lib.books:
-        #                 book_rarity[book.id] += 1
+                # Compute book rarity
+                book_rarity = [0] * num_books
+                for lib in libs_data:
+                    for book in lib.books:
+                        book_rarity[book.id] += 1
 
-        #         def library_heuristic(lib_id):
-        #             lib_data = libs_data[lib_id]
-        #             potential_books = [b.id for b in lib_data.books]
-        #             value = sum(GeneticAlgorithmSolver.book_value(b, scores, book_rarity) for b in potential_books)
-        #             return value / lib_data.signup_days if lib_data.signup_days > 0 else value
+                def library_heuristic(lib_id):
+                    lib_data = libs_data[lib_id]
+                    potential_books = [b.id for b in lib_data.books]
+                    value = sum(GeneticAlgorithmSolver.book_value(b, scores, book_rarity) for b in potential_books)
+                    return value / lib_data.signup_days if lib_data.signup_days > 0 else value
 
-        #         sorted_libs = sorted(all_libs, key=library_heuristic, reverse=True)
+                sorted_libs = sorted(all_libs, key=library_heuristic, reverse=True)
 
-        #         offspring1 = GeneticAlgorithmSolver.build_solution(sorted_libs, scores, num_books, num_days, libs_data, total_libs_set, book_rarity)
-        #         offspring2 = GeneticAlgorithmSolver.build_solution(list(reversed(sorted_libs)), scores, num_books, num_days, libs_data, total_libs_set, book_rarity)
+                offspring1 = GeneticAlgorithmSolver.build_solution(sorted_libs, scores, num_books, num_days, libs_data, total_libs_set, book_rarity)
+                offspring2 = GeneticAlgorithmSolver.build_solution(list(reversed(sorted_libs)), scores, num_books, num_days, libs_data, total_libs_set, book_rarity)
 
-        #         offspring1.calculate_fitness_score(scores)
-        #         offspring2.calculate_fitness_score(scores)
+                offspring1.calculate_fitness_score(scores)
+                offspring2.calculate_fitness_score(scores)
 
-        #         return offspring1, offspring2
+                return offspring1, offspring2
 
-            # except Exception as e:
-            #     print(f"Crossover failed: {e}, returning parents")
-            #     # Ensure even failed crossovers return valid solutions
-            #     parent1.calculate_fitness_score(self.instance.scores)
-            #     parent2.calculate_fitness_score(self.instance.scores)
-            #     return parent1, parent2
+            except Exception as e:
+                print(f"Crossover failed: {e}, returning parents")
+                # Ensure even failed crossovers return valid solutions
+                parent1.calculate_fitness_score(self.instance.scores)
+                parent2.calculate_fitness_score(self.instance.scores)
+                return parent1, parent2
