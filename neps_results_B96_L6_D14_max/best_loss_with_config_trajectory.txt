@@ -1,0 +1,4 @@
+Loss: -4394.0
+Config ID: 1
+Config: {'hill_climbing_steps': 88, 'mutation_prob': 0.7532521264219327, 'population_size': 187, 'tabu_length': 1}
+-------------------------------------------------------------------------------

@@ -1,0 +1,10 @@
+cost: 1.369067668914795
+info_dict:
+  fitness_score: -533
+  hill_climbing_steps: 28
+  input_file: B50_L5_D4.txt
+  mutation_prob: 0.11365225666221873
+  population_size: 99
+  runtime: 1.369067668914795
+  tabu_length: 2
+loss: -533.0
