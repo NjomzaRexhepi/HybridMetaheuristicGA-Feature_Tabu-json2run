@@ -9,7 +9,7 @@ import sys
 import heapq
 from typing import Tuple
 
-# import torch
+import torch
  
 class GeneticAlgorithmSolver:
         # def __init__(self, instance: InstanceData, initial_solution: Solution):
@@ -38,7 +38,7 @@ class GeneticAlgorithmSolver:
             self.hill_climbing_steps = hill_climbing_steps
             self.tabu_length = tabu_length
             self.solver = Solver()
-            # self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+            self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         def load(self, file_path):
             """
@@ -90,7 +90,7 @@ class GeneticAlgorithmSolver:
             best_score = best_solution.fitness_score
 
             no_improvement_counter = 0
-            patience = 10  
+            patience = 6 
 
             for generation in range(self.population_size):
                 print(f"Gen {generation}: Best fitness = {best_score}")

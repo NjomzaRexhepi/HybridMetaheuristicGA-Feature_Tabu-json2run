@@ -1,0 +1,10 @@
+cost: 1071.8920857906342
+info_dict:
+  fitness_score: 78464
+  hill_climbing_steps: 66
+  input_file: B2.5k_L3_D90 (Appalachian Regional Project).txt
+  mutation_prob: 0.7675065388355158
+  population_size: 500
+  runtime: 1071.8920857906342
+  tabu_length: 20
+loss: -78464.0

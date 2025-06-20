@@ -1,0 +1,62 @@
+2025-06-20 11:20:02,368 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-20 11:20:02,368 - INFO - Max evaluations: 20
+2025-06-20 11:20:02,369 - INFO - Results will be stored in: neps_results_B2.5k_L3_D90 (Appalachian Regional Project)_max
+2025-06-20 11:20:02,369 - INFO - Starting neps.run using root directory neps_results_B2.5k_L3_D90 (Appalachian Regional Project)_max
+2025-06-20 11:20:02,374 - INFO - Running bayesian_optimization as the searcher
+2025-06-20 11:20:02,374 - INFO - Strategy: bayesian_optimization
+2025-06-20 11:20:02,423 - INFO - Start evaluating config 1
+2025-06-20 11:20:26,825 - INFO - Finished evaluating config 1 -- new best with loss -78464.000000
+2025-06-20 11:20:26,847 - INFO - Start evaluating config 2
+2025-06-20 11:20:57,082 - INFO - Finished evaluating config 2
+2025-06-20 11:20:57,098 - INFO - Start evaluating config 3
+2025-06-20 11:28:14,778 - INFO - Finished evaluating config 3
+2025-06-20 11:28:14,792 - INFO - Start evaluating config 4
+2025-06-20 11:32:25,913 - INFO - Finished evaluating config 4
+2025-06-20 11:32:25,926 - INFO - Start evaluating config 5
+2025-06-20 11:34:08,361 - INFO - Finished evaluating config 5
+2025-06-20 11:34:08,374 - INFO - Start evaluating config 6
+2025-06-20 11:41:57,744 - INFO - Finished evaluating config 6
+2025-06-20 11:41:57,780 - INFO - Start evaluating config 7
+2025-06-20 11:46:14,994 - INFO - Finished evaluating config 7
+2025-06-20 11:46:15,014 - INFO - Start evaluating config 8
+2025-06-20 11:49:08,087 - INFO - Finished evaluating config 8
+2025-06-20 11:49:08,105 - INFO - Start evaluating config 9
+2025-06-20 12:02:39,370 - INFO - Finished evaluating config 9
+2025-06-20 12:02:39,388 - INFO - Start evaluating config 10
+2025-06-20 12:03:58,270 - INFO - Finished evaluating config 10
+2025-06-20 12:04:00,995 - INFO - Start evaluating config 11
+2025-06-20 12:04:12,075 - INFO - Finished evaluating config 11
+2025-06-20 12:04:12,219 - INFO - Start evaluating config 12
+2025-06-20 12:05:38,842 - INFO - Finished evaluating config 12
+2025-06-20 12:05:39,058 - INFO - Start evaluating config 13
+2025-06-20 12:05:55,383 - INFO - Finished evaluating config 13
+2025-06-20 12:05:55,530 - INFO - Start evaluating config 14
+2025-06-20 12:14:11,333 - INFO - Finished evaluating config 14
+2025-06-20 12:14:11,451 - INFO - Start evaluating config 15
+2025-06-20 12:19:03,862 - INFO - Finished evaluating config 15
+2025-06-20 12:19:03,984 - INFO - Start evaluating config 16
+2025-06-20 12:19:05,538 - INFO - Finished evaluating config 16
+2025-06-20 12:19:05,653 - INFO - Start evaluating config 17
+2025-06-20 12:19:42,224 - INFO - Finished evaluating config 17
+2025-06-20 12:19:42,349 - INFO - Start evaluating config 18
+2025-06-20 12:25:26,900 - INFO - Finished evaluating config 18
+2025-06-20 12:25:27,109 - INFO - Start evaluating config 19
+2025-06-20 12:43:19,009 - INFO - Finished evaluating config 19
+2025-06-20 12:43:19,120 - INFO - Start evaluating config 20
+2025-06-20 12:43:28,258 - INFO - Finished evaluating config 20
+2025-06-20 12:43:28,269 - INFO - Maximum total evaluations is reached, shutting down
+2025-06-20 12:43:28,407 - INFO - 
+NePS search finished.
+2025-06-20 12:43:28,407 - INFO - Check the directory 'neps_results_B2.5k_L3_D90 (Appalachian Regional Project)_max' for detailed results and logs.
+2025-06-20 12:43:28,472 - INFO - 
+--- Best Configuration Found by NePS ---
+2025-06-20 12:43:28,473 - INFO - Config ID: 1
+2025-06-20 12:43:28,473 - INFO - Best Loss (Minimized -Fitness): -78464.0000
+2025-06-20 12:43:28,473 - INFO - Corresponding Fitness Score: 78464.0000
+2025-06-20 12:43:28,473 - INFO - Hyperparameters:
+2025-06-20 12:43:28,473 - INFO -   hill_climbing_steps: 34
+2025-06-20 12:43:28,473 - INFO -   mutation_prob: 0.39784072316861624
+2025-06-20 12:43:28,474 - INFO -   population_size: 37
+2025-06-20 12:43:28,474 - INFO -   tabu_length: 6
+2025-06-20 12:43:28,474 - INFO - Runtime for this config: 23.85s
