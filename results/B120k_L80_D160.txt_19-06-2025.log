@@ -1,0 +1,16 @@
+2025-06-19 07:13:18,902 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-19 07:13:18,905 - INFO - Max evaluations: 20
+2025-06-19 07:13:18,905 - INFO - Results will be stored in: neps_results_B120k_L80_D160_max
+2025-06-19 07:13:18,905 - INFO - Starting neps.run using root directory neps_results_B120k_L80_D160_max
+2025-06-19 07:13:18,924 - INFO - Running bayesian_optimization as the searcher
+2025-06-19 07:13:18,925 - INFO - Strategy: bayesian_optimization
+2025-06-19 07:13:19,011 - INFO - Start evaluating config 1
+[NePS EVAL] Starting evaluation with params:
+  population_size: 212
+  mutation_prob: 0.3062
+  hill_climbing_steps: 88
+  tabu_length: 1
+Gen 0: Best fitness = 30426237
+Gen 1: Best fitness = 22297719
+
