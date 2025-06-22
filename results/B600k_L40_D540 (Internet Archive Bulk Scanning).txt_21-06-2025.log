@@ -6,3 +6,15 @@ Starting NePS hyperparameter search...
 2025-06-21 14:39:16,839 - INFO - Running bayesian_optimization as the searcher
 2025-06-21 14:39:16,839 - INFO - Strategy: bayesian_optimization
 2025-06-21 14:39:16,895 - INFO - Start evaluating config 1
+2025-06-21 15:34:55,374 - INFO - Finished evaluating config 1 -- new best with loss -46479775.000000
+2025-06-21 15:34:55,467 - INFO - Start evaluating config 2
+2025-06-21 17:23:03,739 - INFO - Finished evaluating config 2
+2025-06-21 17:23:03,752 - INFO - Start evaluating config 3
+2025-06-21 17:32:58,143 - INFO - Finished evaluating config 3
+2025-06-21 17:32:58,156 - INFO - Start evaluating config 4
+2025-06-21 18:59:14,157 - INFO - Finished evaluating config 4
+2025-06-21 18:59:14,229 - INFO - Start evaluating config 5
+2025-06-21 20:59:09,116 - INFO - Finished evaluating config 5
+2025-06-21 20:59:09,142 - INFO - Start evaluating config 6
+2025-06-21 21:05:44,374 - INFO - Finished evaluating config 6
+2025-06-21 21:05:44,389 - INFO - Start evaluating config 7
