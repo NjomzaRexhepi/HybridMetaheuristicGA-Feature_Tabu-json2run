@@ -181,7 +181,7 @@ if __name__ == "__main__":
     parser.add_argument("--input_file", type=str, default="B600k_L40_D540 (Internet Archive Bulk Scanning).txt", help="Input File")
     parser.add_argument("--max_evaluations", type=int, default=20,
                         help="Maximum number of hyperparameter configurations to try.")
-    parser.add_argument("--neps_root_dir", type=str, default="neps_results_B600k_L40_D540 (Internet Archive Bulk Scanning)_max",
+    parser.add_argument("--neps_root_dir", type=str, default="neps_results_B600k_L40_D540 (Internet Archive Bulk Scanning)_max_second",
                         help="Directory to store NePS results.")
  
     args = parser.parse_args()
@@ -205,21 +205,21 @@ if __name__ == "__main__":
     initial_solution = create_initial_solution(instance)
  
     # better for smaller files
-    pipeline_space = dict(
-        population_size=neps.IntegerParameter(lower=10, upper=500, log=False),  
-        mutation_prob=neps.FloatParameter(lower=0.01, upper=0.8, log=False),  
-        hill_climbing_steps=neps.IntegerParameter(lower=10, upper=100, log=False),
-        # Fewer steps to avoid long refinements
-        tabu_length=neps.IntegerParameter(lower=0, upper=20, log=False)  
-    )
+    # pipeline_space = dict(
+    #     population_size=neps.IntegerParameter(lower=10, upper=500, log=False),  
+    #     mutation_prob=neps.FloatParameter(lower=0.01, upper=0.8, log=False),  
+    #     hill_climbing_steps=neps.IntegerParameter(lower=10, upper=100, log=False),
+    #     # Fewer steps to avoid long refinements
+    #     tabu_length=neps.IntegerParameter(lower=0, upper=20, log=False)  
+    # )
  
     # better for medium or larger files
-    # pipeline_space = dict(
-    #     population_size=neps.IntegerParameter(lower=10, upper=100, log=False),
-    #     mutation_prob=neps.FloatParameter(lower=0.01, upper=0.5, log=False),
-    #     hill_climbing_steps=neps.IntegerParameter(lower=0, upper=40, log=False),
-    #     tabu_length=neps.IntegerParameter(lower=0, upper=15, log=False)
-    # )
+    pipeline_space = dict(
+        population_size=neps.IntegerParameter(lower=10, upper=100, log=False),
+        mutation_prob=neps.FloatParameter(lower=0.01, upper=0.5, log=False),
+        hill_climbing_steps=neps.IntegerParameter(lower=0, upper=40, log=False),
+        tabu_length=neps.IntegerParameter(lower=0, upper=15, log=False)
+    )
  
     run_pipeline_with_fixed_args = partial(
         run_pipeline_for_neps,

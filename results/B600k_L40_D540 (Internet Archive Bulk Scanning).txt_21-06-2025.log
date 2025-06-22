@@ -1,0 +1,8 @@
+2025-06-21 14:39:16,833 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-21 14:39:16,834 - INFO - Max evaluations: 20
+2025-06-21 14:39:16,834 - INFO - Results will be stored in: neps_results_B600k_L40_D540 (Internet Archive Bulk Scanning)_max_second
+2025-06-21 14:39:16,834 - INFO - Starting neps.run using root directory neps_results_B600k_L40_D540 (Internet Archive Bulk Scanning)_max_second
+2025-06-21 14:39:16,839 - INFO - Running bayesian_optimization as the searcher
+2025-06-21 14:39:16,839 - INFO - Strategy: bayesian_optimization
+2025-06-21 14:39:16,895 - INFO - Start evaluating config 1

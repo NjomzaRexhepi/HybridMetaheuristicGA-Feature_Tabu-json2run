@@ -1,0 +1,10 @@
+cost: 395.2241122722626
+info_dict:
+  fitness_score: 46479775
+  hill_climbing_steps: 6
+  input_file: B600k_L40_D540 (Internet Archive Bulk Scanning).txt
+  mutation_prob: 0.188847144092177
+  population_size: 17
+  runtime: 395.2241122722626
+  tabu_length: 5
+loss: -46479775.0
