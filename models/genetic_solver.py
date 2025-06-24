@@ -102,7 +102,6 @@ class GeneticAlgorithmSolver:
                     parent2 = self.tournament_select(population)
 
                     offspring1, offspring2 = self.union_crossover(parent1, parent2)
-                   # offspring1, offspring2 = self.union_crossover(parent1, parent2)
 
                     for offspring in (offspring1, offspring2):
                         if random.random() < self.mutation_prob:
