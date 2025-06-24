@@ -1,0 +1,23 @@
+2025-06-22 08:34:04,270 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-22 08:34:04,271 - INFO - Max evaluations: 20
+2025-06-22 08:34:04,271 - INFO - Results will be stored in: neps_results_B2000k_L300_D3.6k (Deutsche Digitale Bibliothek)_max_second
+2025-06-22 08:34:04,272 - INFO - Starting neps.run using root directory neps_results_B2000k_L300_D3.6k (Deutsche Digitale Bibliothek)_max_second
+2025-06-22 08:34:04,279 - INFO - Running bayesian_optimization as the searcher
+2025-06-22 08:34:04,279 - INFO - Strategy: bayesian_optimization
+2025-06-22 08:34:04,509 - INFO - Start evaluating config 1
+2025-06-22 14:29:35,453 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-22 14:29:35,454 - INFO - Max evaluations: 20
+2025-06-22 14:29:35,454 - INFO - Results will be stored in: neps_results_B2000k_L300_D3.6k (Deutsche Digitale Bibliothek)_max_second
+2025-06-22 14:29:35,454 - INFO - Starting neps.run using root directory neps_results_B2000k_L300_D3.6k (Deutsche Digitale Bibliothek)_max_second
+2025-06-22 14:29:35,465 - INFO - Running bayesian_optimization as the searcher
+2025-06-22 14:29:35,465 - INFO - Strategy: bayesian_optimization
+2025-06-22 14:29:35,603 - INFO - Start evaluating config 1
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 32
+  mutation_prob: 0.4675
+  hill_climbing_steps: 22
+  tabu_length: 15
+Gen 0: Best fitness = 610359778
