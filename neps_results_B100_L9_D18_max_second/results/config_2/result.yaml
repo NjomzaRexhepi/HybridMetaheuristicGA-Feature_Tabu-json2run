@@ -1,0 +1,10 @@
+cost: 0.8575689792633057
+info_dict:
+  fitness_score: 4838
+  hill_climbing_steps: 1
+  input_file: B100_L9_D18.txt
+  mutation_prob: 0.08324039499974115
+  population_size: 68
+  runtime: 0.8575689792633057
+  tabu_length: 2
+loss: -4838.0
