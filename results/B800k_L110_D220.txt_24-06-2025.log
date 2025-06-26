@@ -1,0 +1,148 @@
+2025-06-24 19:38:51,214 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-24 19:38:51,214 - INFO - Max evaluations: 20
+2025-06-24 19:38:51,214 - INFO - Results will be stored in: neps_results_B800k_L110_D220_max_second
+2025-06-24 19:38:51,214 - INFO - Starting neps.run using root directory neps_results_B800k_L110_D220_max_second
+2025-06-24 19:38:51,221 - INFO - Running bayesian_optimization as the searcher
+2025-06-24 19:38:51,221 - INFO - Strategy: bayesian_optimization
+2025-06-24 19:38:51,271 - INFO - Start evaluating config 1
+2025-06-24 20:22:12,931 - INFO - Finished evaluating config 1 -- new best with loss -46224306.000000
+2025-06-24 20:22:12,954 - INFO - Start evaluating config 2
+2025-06-24 23:07:56,997 - INFO - Finished evaluating config 2
+2025-06-24 23:07:57,019 - INFO - Start evaluating config 3
+2025-06-24 23:23:59,571 - INFO - Finished evaluating config 3 -- new best with loss -47161546.000000
+2025-06-24 23:23:59,609 - INFO - Start evaluating config 4
+2025-06-25 20:24:50,049 - INFO - Finished evaluating config 4
+2025-06-25 20:24:50,241 - INFO - Start evaluating config 5
+2025-06-25 21:38:46,258 - INFO - Finished evaluating config 5
+2025-06-25 21:38:46,313 - INFO - Start evaluating config 6
+2025-06-25 23:36:54,321 - INFO - Finished evaluating config 6
+2025-06-25 23:36:54,341 - INFO - Start evaluating config 7
+PS C:\Users\njomz\source\repos\HybridMetaheuristicGA-Feature_Tabu-json2run> & C:/Users/njomz/anaconda3/envs/pytorch_schedulers/python.exe c:/Users/njomz/source/repos/HybridMetaheuristicGA-Feature_Tabu-json2run/main.py
+Cuda: True
+Running Neural Pipeline Search for Genetic Algorithm Hyperparameter Optimization
+
+Starting NePS hyperparameter search...
+Max evaluations: 20
+Results will be stored in: neps_results_B800k_L110_D220_max_second
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 17
+  mutation_prob: 0.4658
+  hill_climbing_steps: 10
+  tabu_length: 10
+Gen 0: Best fitness = 48871160
+Gen 1: Best fitness = 47161546
+Gen 2: Best fitness = 47161546
+Gen 3: Best fitness = 47161546
+Gen 4: Best fitness = 46224306
+Gen 5: Best fitness = 46224306
+Gen 6: Best fitness = 46224306
+Gen 7: Best fitness = 46224306
+Gen 8: Best fitness = 46224306
+Gen 9: Best fitness = 46224306
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 46224306, Runtime: 2601.37s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 95
+  mutation_prob: 0.1494
+  hill_climbing_steps: 16
+  tabu_length: 4
+Gen 0: Best fitness = 51394117
+Gen 1: Best fitness = 45457579
+Gen 2: Best fitness = 45457579
+Gen 3: Best fitness = 45457579
+Gen 4: Best fitness = 45457579
+Gen 5: Best fitness = 45457579
+Gen 6: Best fitness = 45457579
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 45457579, Runtime: 9944.02s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 14
+  mutation_prob: 0.0924
+  hill_climbing_steps: 29
+  tabu_length: 12
+Gen 0: Best fitness = 48372555
+Gen 1: Best fitness = 47161546
+Gen 2: Best fitness = 47161546
+Gen 3: Best fitness = 47161546
+Gen 4: Best fitness = 47161546
+Gen 5: Best fitness = 47161546
+Gen 6: Best fitness = 47161546
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 47161546, Runtime: 962.53s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 23
+  mutation_prob: 0.2293
+  hill_climbing_steps: 26
+  tabu_length: 7
+Gen 0: Best fitness = 49433221
+Gen 1: Best fitness = 47161546
+Gen 2: Best fitness = 43402095
+Gen 3: Best fitness = 43402095
+Gen 4: Best fitness = 43402095
+Gen 5: Best fitness = 43402095
+Gen 6: Best fitness = 43402095
+Gen 7: Best fitness = 43402095
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 43402095, Runtime: 75650.37s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 29
+  mutation_prob: 0.2397
+  hill_climbing_steps: 15
+  tabu_length: 12
+Gen 0: Best fitness = 50845887
+Gen 1: Best fitness = 47161546
+Gen 2: Best fitness = 45108745
+Gen 3: Best fitness = 45108745
+Gen 4: Best fitness = 45108745
+Gen 5: Best fitness = 45108745
+Gen 6: Best fitness = 45108745
+Gen 7: Best fitness = 45108745
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 45108745, Runtime: 4435.96s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 22
+  mutation_prob: 0.1281
+  hill_climbing_steps: 35
+  tabu_length: 4
+Gen 0: Best fitness = 48372555
+Gen 1: Best fitness = 47161546
+Gen 2: Best fitness = 47161546
+Gen 3: Best fitness = 47161546
+Gen 4: Best fitness = 47161546
+Gen 5: Best fitness = 47157249
+Gen 6: Best fitness = 47157249
+Gen 7: Best fitness = 47157249
+Gen 8: Best fitness = 47157249
+Gen 9: Best fitness = 47157249
+Gen 10: Best fitness = 46539050
+Gen 11: Best fitness = 46539050
+Gen 12: Best fitness = 46539050
+Gen 13: Best fitness = 46539050
+Gen 14: Best fitness = 46539050
+Gen 15: Best fitness = 46539050
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 46539050, Runtime: 7088.00s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 80
+  mutation_prob: 0.1733
+  hill_climbing_steps: 30
+  tabu_length: 14
+Gen 0: Best fitness = 51394117
+Gen 1: Best fitness = 46258350
+Gen 2: Best fitness = 43729828
+Gen 3: Best fitness = 43729828
+Gen 4: Best fitness = 43729828
+forrtl: error (200): program aborting due to control-C event
+Image              PC                Routine            Line        Source
+libifcoremd.dll    00007FFAED1ADF54  Unknown               Unknown  Unknown
+KERNELBASE.dll     00007FFB5FD9B71D  Unknown               Unknown  Unknown
+KERNEL32.DLL       00007FFB6064E8D7  Unknown               Unknown  Unknown
+ntdll.dll          00007FFB628BC34C  Unknown               Unknown  Unknown

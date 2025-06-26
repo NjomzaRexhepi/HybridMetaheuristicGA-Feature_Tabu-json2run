@@ -1,0 +1,10 @@
+cost: 7087.998103141785
+info_dict:
+  fitness_score: 46539050
+  hill_climbing_steps: 35
+  input_file: B800k_L110_D220.txt
+  mutation_prob: 0.12811506506750872
+  population_size: 22
+  runtime: 7087.998103141785
+  tabu_length: 4
+loss: -46539050.0

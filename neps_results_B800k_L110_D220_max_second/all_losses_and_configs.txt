@@ -1,0 +1,24 @@
+Loss: -46224306.0
+Config ID: 1
+Config: {'hill_climbing_steps': 10, 'mutation_prob': 0.4657517641356399, 'population_size': 17, 'tabu_length': 10}
+-------------------------------------------------------------------------------
+Loss: -45457579.0
+Config ID: 2
+Config: {'hill_climbing_steps': 16, 'mutation_prob': 0.1494359774945431, 'population_size': 95, 'tabu_length': 4}
+-------------------------------------------------------------------------------
+Loss: -47161546.0
+Config ID: 3
+Config: {'hill_climbing_steps': 29, 'mutation_prob': 0.09239945783904278, 'population_size': 14, 'tabu_length': 12}
+-------------------------------------------------------------------------------
+Loss: -43402095.0
+Config ID: 4
+Config: {'hill_climbing_steps': 26, 'mutation_prob': 0.22929332380673012, 'population_size': 23, 'tabu_length': 7}
+-------------------------------------------------------------------------------
+Loss: -45108745.0
+Config ID: 5
+Config: {'hill_climbing_steps': 15, 'mutation_prob': 0.23972567367783806, 'population_size': 29, 'tabu_length': 12}
+-------------------------------------------------------------------------------
+Loss: -46539050.0
+Config ID: 6
+Config: {'hill_climbing_steps': 35, 'mutation_prob': 0.12811506506750872, 'population_size': 22, 'tabu_length': 4}
+-------------------------------------------------------------------------------
