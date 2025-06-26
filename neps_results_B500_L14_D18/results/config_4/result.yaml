@@ -1,0 +1,10 @@
+cost: 1.4416546821594238
+info_dict:
+  fitness_score: 48465
+  hill_climbing_steps: 11
+  input_file: B500_L14_D18.txt
+  mutation_prob: 0.04802156947420985
+  population_size: 83
+  runtime: 1.4416546821594238
+  tabu_length: 10
+loss: -48465.0

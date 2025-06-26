@@ -1,0 +1,42 @@
+2025-06-27 00:45:03,397 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-27 00:45:03,398 - INFO - Max evaluations: 10
+2025-06-27 00:45:03,398 - INFO - Results will be stored in: neps_results_B500_L14_D18
+2025-06-27 00:45:03,398 - INFO - Starting neps.run using root directory neps_results_B500_L14_D18
+2025-06-27 00:45:03,400 - INFO - Running bayesian_optimization as the searcher
+2025-06-27 00:45:03,400 - INFO - Strategy: bayesian_optimization
+2025-06-27 00:45:03,457 - INFO - Start evaluating config 1
+2025-06-27 00:45:03,818 - INFO - Finished evaluating config 1 -- new best with loss -48465.000000
+2025-06-27 00:45:03,831 - INFO - Start evaluating config 2
+2025-06-27 00:45:16,436 - INFO - Finished evaluating config 2
+2025-06-27 00:45:16,477 - INFO - Start evaluating config 3
+2025-06-27 00:45:35,532 - INFO - Finished evaluating config 3
+2025-06-27 00:45:35,545 - INFO - Start evaluating config 4
+2025-06-27 00:45:36,996 - INFO - Finished evaluating config 4
+2025-06-27 00:45:37,031 - INFO - Start evaluating config 5
+2025-06-27 00:45:45,604 - INFO - Finished evaluating config 5
+2025-06-27 00:45:45,653 - INFO - Start evaluating config 6
+2025-06-27 00:45:47,477 - INFO - Finished evaluating config 6
+2025-06-27 00:45:47,494 - INFO - Start evaluating config 7
+2025-06-27 00:45:52,660 - INFO - Finished evaluating config 7
+2025-06-27 00:45:52,705 - INFO - Start evaluating config 8
+2025-06-27 00:45:57,888 - INFO - Finished evaluating config 8
+2025-06-27 00:45:57,917 - INFO - Start evaluating config 9
+2025-06-27 00:45:58,117 - INFO - Finished evaluating config 9
+2025-06-27 00:45:58,137 - INFO - Start evaluating config 10
+2025-06-27 00:45:59,326 - INFO - Finished evaluating config 10
+2025-06-27 00:45:59,330 - INFO - Maximum total evaluations is reached, shutting down
+2025-06-27 00:45:59,418 - INFO - 
+NePS search finished.
+2025-06-27 00:45:59,418 - INFO - Check the directory 'neps_results_B500_L14_D18' for detailed results and logs.
+2025-06-27 00:45:59,451 - INFO - 
+--- Best Configuration Found by NePS ---
+2025-06-27 00:45:59,451 - INFO - Config ID: 1
+2025-06-27 00:45:59,451 - INFO - Best Loss (Minimized -Fitness): -48465.0000
+2025-06-27 00:45:59,451 - INFO - Corresponding Fitness Score: 48465.0000
+2025-06-27 00:45:59,452 - INFO - Hyperparameters:
+2025-06-27 00:45:59,452 - INFO -   hill_climbing_steps: 0
+2025-06-27 00:45:59,452 - INFO -   mutation_prob: 0.20260346968223522
+2025-06-27 00:45:59,453 - INFO -   population_size: 61
+2025-06-27 00:45:59,453 - INFO -   tabu_length: 9
+2025-06-27 00:45:59,453 - INFO - Runtime for this config: 0.16s
