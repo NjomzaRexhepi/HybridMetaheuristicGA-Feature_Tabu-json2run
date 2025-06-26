@@ -1,0 +1,10 @@
+cost: 119.8144142627716
+info_dict:
+  fitness_score: 120996
+  hill_climbing_steps: 15
+  input_file: B100k_L600_D28.txt
+  mutation_prob: 0.3844676691603719
+  population_size: 88
+  runtime: 119.8144142627716
+  tabu_length: 4
+loss: -120996.0
