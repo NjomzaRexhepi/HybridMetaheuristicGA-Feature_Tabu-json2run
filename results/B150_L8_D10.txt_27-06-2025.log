@@ -1,0 +1,26 @@
+2025-06-27 00:26:29,465 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-27 00:26:29,466 - INFO - Max evaluations: 10
+2025-06-27 00:26:29,466 - INFO - Results will be stored in: neps_results_B150_L8_D10
+2025-06-27 00:26:29,466 - INFO - Starting neps.run using root directory neps_results_B150_L8_D10
+2025-06-27 00:26:29,469 - INFO - Running bayesian_optimization as the searcher
+2025-06-27 00:26:29,469 - INFO - Strategy: bayesian_optimization
+2025-06-27 00:26:29,502 - INFO - Start evaluating config 1
+2025-06-27 00:29:34,534 - INFO - Finished evaluating config 1 -- new best with loss -8454.000000
+2025-06-27 00:29:34,550 - INFO - Start evaluating config 2
+2025-06-27 00:30:18,134 - INFO - Finished evaluating config 2
+2025-06-27 00:30:18,149 - INFO - Start evaluating config 3
+2025-06-27 00:30:53,854 - INFO - Finished evaluating config 3
+2025-06-27 00:30:53,900 - INFO - Start evaluating config 4
+2025-06-27 00:34:32,023 - INFO - Finished evaluating config 4
+2025-06-27 00:34:32,062 - INFO - Start evaluating config 5
+2025-06-27 00:35:17,986 - INFO - Finished evaluating config 5
+2025-06-27 00:35:17,999 - INFO - Start evaluating config 6
+2025-06-27 00:36:04,190 - INFO - Finished evaluating config 6
+2025-06-27 00:36:04,218 - INFO - Start evaluating config 7
+2025-06-27 00:37:06,417 - INFO - Finished evaluating config 7
+2025-06-27 00:37:06,433 - INFO - Start evaluating config 8
+2025-06-27 00:37:53,320 - INFO - Finished evaluating config 8
+2025-06-27 00:37:53,336 - INFO - Start evaluating config 9
+2025-06-27 00:38:16,337 - INFO - Finished evaluating config 9
+2025-06-27 00:38:16,359 - INFO - Start evaluating config 10

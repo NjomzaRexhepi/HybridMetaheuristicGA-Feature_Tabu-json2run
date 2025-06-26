@@ -1,0 +1,36 @@
+Loss: -8454.0
+Config ID: 1
+Config: {'hill_climbing_steps': 28, 'mutation_prob': 0.47307072249554916, 'population_size': 1131, 'tabu_length': 2}
+-------------------------------------------------------------------------------
+Loss: -8454.0
+Config ID: 2
+Config: {'hill_climbing_steps': 19, 'mutation_prob': 0.12486466788919574, 'population_size': 1403, 'tabu_length': 0}
+-------------------------------------------------------------------------------
+Loss: -8454.0
+Config ID: 3
+Config: {'hill_climbing_steps': 40, 'mutation_prob': 0.05045820431550319, 'population_size': 1189, 'tabu_length': 4}
+-------------------------------------------------------------------------------
+Loss: -8454.0
+Config ID: 4
+Config: {'hill_climbing_steps': 40, 'mutation_prob': 0.4596722043405251, 'population_size': 1116, 'tabu_length': 8}
+-------------------------------------------------------------------------------
+Loss: -8454.0
+Config ID: 5
+Config: {'hill_climbing_steps': 8, 'mutation_prob': 0.3032490205163394, 'population_size': 1407, 'tabu_length': 7}
+-------------------------------------------------------------------------------
+Loss: -8454.0
+Config ID: 6
+Config: {'hill_climbing_steps': 7, 'mutation_prob': 0.31375153932746036, 'population_size': 1496, 'tabu_length': 13}
+-------------------------------------------------------------------------------
+Loss: -8454.0
+Config ID: 7
+Config: {'hill_climbing_steps': 29, 'mutation_prob': 0.1470480437088689, 'population_size': 1184, 'tabu_length': 0}
+-------------------------------------------------------------------------------
+Loss: -8454.0
+Config ID: 8
+Config: {'hill_climbing_steps': 17, 'mutation_prob': 0.16464539638532888, 'population_size': 1442, 'tabu_length': 7}
+-------------------------------------------------------------------------------
+Loss: -8454.0
+Config ID: 9
+Config: {'hill_climbing_steps': 2, 'mutation_prob': 0.4919037639175363, 'population_size': 1424, 'tabu_length': 6}
+-------------------------------------------------------------------------------

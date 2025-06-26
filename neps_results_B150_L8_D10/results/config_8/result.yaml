@@ -1,0 +1,10 @@
+cost: 46.88105535507202
+info_dict:
+  fitness_score: 8454
+  hill_climbing_steps: 17
+  input_file: B150_L8_D10.txt
+  mutation_prob: 0.16464539638532888
+  population_size: 1442
+  runtime: 46.88105535507202
+  tabu_length: 7
+loss: -8454.0
