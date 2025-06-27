@@ -1,0 +1,10 @@
+cost: 2.2520508766174316
+info_dict:
+  fitness_score: 3597
+  hill_climbing_steps: 15
+  input_file: B5k_L90_D21.txt
+  mutation_prob: 0.16575872972914404
+  population_size: 53
+  runtime: 2.2520508766174316
+  tabu_length: 2
+loss: -3597.0
