@@ -1,0 +1,10 @@
+cost: 1.065765142440796
+info_dict:
+  fitness_score: 65520
+  hill_climbing_steps: 6
+  input_file: B750_L20_D14.txt
+  mutation_prob: 0.3555745603349283
+  population_size: 25
+  runtime: 1.065765142440796
+  tabu_length: 4
+loss: -65520.0
