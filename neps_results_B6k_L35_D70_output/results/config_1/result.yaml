@@ -1,0 +1,10 @@
+cost: 296.4848322868347
+info_dict:
+  fitness_score: 2307803
+  hill_climbing_steps: 11
+  input_file: B6k_L35_D70.txt
+  mutation_prob: 0.4909812973719196
+  population_size: 56
+  runtime: 296.4848322868347
+  tabu_length: 7
+loss: -2307803.0
