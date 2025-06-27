@@ -1,0 +1,10 @@
+cost: 3.7696568965911865
+info_dict:
+  fitness_score: 3552
+  hill_climbing_steps: 40
+  input_file: B98_L4_D15.txt
+  mutation_prob: 0.27500872083028455
+  population_size: 85
+  runtime: 3.7696568965911865
+  tabu_length: 14
+loss: -3552.0
