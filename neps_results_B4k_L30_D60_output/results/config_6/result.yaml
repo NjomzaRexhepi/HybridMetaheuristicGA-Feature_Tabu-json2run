@@ -1,0 +1,10 @@
+cost: 71.68474173545837
+info_dict:
+  fitness_score: 1375704
+  hill_climbing_steps: 21
+  input_file: B4k_L30_D60.txt
+  mutation_prob: 0.3445286204699958
+  population_size: 23
+  runtime: 71.68474173545837
+  tabu_length: 4
+loss: -1375704.0
