@@ -1,0 +1,10 @@
+cost: 3305.85884141922
+info_dict:
+  fitness_score: 2715565
+  hill_climbing_steps: 11
+  input_file: B9k_L40_D80.txt
+  mutation_prob: 0.37948891928840245
+  population_size: 89
+  runtime: 3305.85884141922
+  tabu_length: 1
+loss: -2715565.0
