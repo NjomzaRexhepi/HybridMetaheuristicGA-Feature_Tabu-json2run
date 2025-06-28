@@ -1,0 +1,40 @@
+Loss: -4549809.0
+Config ID: 1
+Config: {'hill_climbing_steps': 20, 'mutation_prob': 0.4470819316720524, 'population_size': 40, 'tabu_length': 15}
+-------------------------------------------------------------------------------
+Loss: -4549809.0
+Config ID: 2
+Config: {'hill_climbing_steps': 28, 'mutation_prob': 0.4729132723396813, 'population_size': 43, 'tabu_length': 11}
+-------------------------------------------------------------------------------
+Loss: -4508749.0
+Config ID: 3
+Config: {'hill_climbing_steps': 34, 'mutation_prob': 0.4965035894204021, 'population_size': 19, 'tabu_length': 5}
+-------------------------------------------------------------------------------
+Loss: -4549809.0
+Config ID: 4
+Config: {'hill_climbing_steps': 10, 'mutation_prob': 0.1781171217020507, 'population_size': 85, 'tabu_length': 2}
+-------------------------------------------------------------------------------
+Loss: -4549809.0
+Config ID: 5
+Config: {'hill_climbing_steps': 11, 'mutation_prob': 0.17990704520402245, 'population_size': 24, 'tabu_length': 8}
+-------------------------------------------------------------------------------
+Loss: -4549809.0
+Config ID: 6
+Config: {'hill_climbing_steps': 19, 'mutation_prob': 0.06171466367482317, 'population_size': 69, 'tabu_length': 10}
+-------------------------------------------------------------------------------
+Loss: -4618055.0
+Config ID: 7
+Config: {'hill_climbing_steps': 23, 'mutation_prob': 0.028526889585960634, 'population_size': 80, 'tabu_length': 0}
+-------------------------------------------------------------------------------
+Loss: -4618055.0
+Config ID: 8
+Config: {'hill_climbing_steps': 15, 'mutation_prob': 0.019335126734124977, 'population_size': 18, 'tabu_length': 14}
+-------------------------------------------------------------------------------
+Loss: -4549809.0
+Config ID: 9
+Config: {'hill_climbing_steps': 12, 'mutation_prob': 0.3063274839275875, 'population_size': 87, 'tabu_length': 0}
+-------------------------------------------------------------------------------
+Loss: -4549809.0
+Config ID: 10
+Config: {'hill_climbing_steps': 38, 'mutation_prob': 0.04116633569779898, 'population_size': 100, 'tabu_length': 3}
+-------------------------------------------------------------------------------

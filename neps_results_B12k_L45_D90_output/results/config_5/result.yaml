@@ -1,0 +1,10 @@
+cost: 139.8873827457428
+info_dict:
+  fitness_score: 4549809
+  hill_climbing_steps: 11
+  input_file: B12k_L45_D90.txt
+  mutation_prob: 0.17990704520402245
+  population_size: 24
+  runtime: 139.8873827457428
+  tabu_length: 8
+loss: -4549809.0
