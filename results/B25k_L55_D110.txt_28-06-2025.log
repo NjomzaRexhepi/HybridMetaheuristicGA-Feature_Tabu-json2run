@@ -14,3 +14,92 @@ Starting NePS hyperparameter search...
 2025-06-28 15:07:25,735 - INFO - Start evaluating config 4
 2025-06-28 21:35:16,840 - INFO - Finished evaluating config 4
 2025-06-28 21:35:16,865 - INFO - Start evaluating config 5
+2025-06-29 06:24:45,919 - INFO - Finished evaluating config 5
+2025-06-29 06:24:46,041 - INFO - Start evaluating config 6
+
+
+Starting NePS hyperparameter search...
+Max evaluations: 10
+Results will be stored in: neps_results_B25k_L55_D110_output
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 70
+  mutation_prob: 0.3244
+  hill_climbing_steps: 34
+  tabu_length: 6
+Gen 0: Best fitness = 9480192
+Gen 1: Best fitness = 7732542
+Gen 2: Best fitness = 7732542
+Gen 3: Best fitness = 7732542
+Gen 4: Best fitness = 7732542
+Gen 5: Best fitness = 7732542
+Gen 6: Best fitness = 7732542
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 7732542, Runtime: 10764.18s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 97
+  mutation_prob: 0.1318
+  hill_climbing_steps: 6
+  tabu_length: 2
+Gen 0: Best fitness = 9416213
+Gen 1: Best fitness = 7427238
+Gen 2: Best fitness = 7427238
+Gen 3: Best fitness = 7427238
+Gen 4: Best fitness = 7427238
+Gen 5: Best fitness = 7427238
+Gen 6: Best fitness = 7427238
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 7427238, Runtime: 250.12s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 82
+  mutation_prob: 0.4221
+  hill_climbing_steps: 39
+  tabu_length: 2
+Gen 0: Best fitness = 9695679
+Gen 1: Best fitness = 7416735
+Gen 2: Best fitness = 7416735
+Gen 3: Best fitness = 7416735
+Gen 4: Best fitness = 7416735
+Gen 5: Best fitness = 7416735
+Gen 6: Best fitness = 7416735
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 7416735, Runtime: 16793.81s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 99
+  mutation_prob: 0.4390
+  hill_climbing_steps: 39
+  tabu_length: 6
+Gen 0: Best fitness = 9695679
+Gen 1: Best fitness = 6916432
+Gen 2: Best fitness = 6916432
+Gen 3: Best fitness = 6916432
+Gen 4: Best fitness = 6916432
+Gen 5: Best fitness = 6916432
+Gen 6: Best fitness = 6916432
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 6916432, Runtime: 23271.08s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 77
+  mutation_prob: 0.3306
+  hill_climbing_steps: 19
+  tabu_length: 6
+Gen 0: Best fitness = 9695679
+Gen 1: Best fitness = 7382731
+Gen 2: Best fitness = 7382731
+Gen 3: Best fitness = 7382731
+Gen 4: Best fitness = 7382731
+Gen 5: Best fitness = 7382731
+Gen 6: Best fitness = 7382731
+Early stopping: No improvement for 6 generations.
+[NePS EVAL] Fitness: 7382731, Runtime: 31769.02s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 16
+  mutation_prob: 0.3400
+  hill_climbing_steps: 22
+  tabu_length: 12
+Gen 0: Best fitness = 9572044
