@@ -1,0 +1,10 @@
+cost: 2260.765065431595
+info_dict:
+  fitness_score: 13166456
+  hill_climbing_steps: 9
+  input_file: B48k_L65_D130.txt
+  mutation_prob: 0.27275578115124477
+  population_size: 94
+  runtime: 2260.765065431595
+  tabu_length: 7
+loss: -13166456.0

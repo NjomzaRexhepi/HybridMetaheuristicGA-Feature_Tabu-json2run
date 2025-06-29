@@ -178,10 +178,10 @@ if __name__ == "__main__":
     print("Cuda:", torch.cuda.is_available())
     print("Running Neural Pipeline Search for Genetic Algorithm Hyperparameter Optimization")
     parser = argparse.ArgumentParser(description="Run Genetic Algorithm with NePS hyperparameter optimization.")
-    parser.add_argument("--input_file", type=str, default="B35k_L60_D120.txt", help="Input File")
+    parser.add_argument("--input_file", type=str, default="B50k_L400_D28.txt", help="Input File")
     parser.add_argument("--max_evaluations", type=int, default=10,
                         help="Maximum number of hyperparameter configurations to try.")
-    parser.add_argument("--neps_root_dir", type=str, default="neps_results_B35k_L60_D120_output",
+    parser.add_argument("--neps_root_dir", type=str, default="neps_results_B50k_L400_D28_output",
                         help="Directory to store NePS results.")
  
     args = parser.parse_args()
