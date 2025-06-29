@@ -90,7 +90,7 @@ class GeneticAlgorithmSolver:
             best_score = best_solution.fitness_score
 
             no_improvement_counter = 0
-            patience = 10
+            patience = 6
 
             for generation in range(self.population_size):
                 print(f"Gen {generation}: Best fitness = {best_score}")
