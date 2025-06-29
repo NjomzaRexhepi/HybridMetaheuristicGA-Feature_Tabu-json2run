@@ -1,0 +1,42 @@
+2025-06-29 22:29:56,799 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-29 22:29:56,801 - INFO - Max evaluations: 10
+2025-06-29 22:29:56,802 - INFO - Results will be stored in: neps_results_B50k_L400_D28_output
+2025-06-29 22:29:56,803 - INFO - Starting neps.run using root directory neps_results_B50k_L400_D28_output
+2025-06-29 22:29:56,822 - INFO - Running bayesian_optimization as the searcher
+2025-06-29 22:29:56,822 - INFO - Strategy: bayesian_optimization
+2025-06-29 22:29:56,941 - INFO - Start evaluating config 1
+2025-06-29 22:30:05,779 - INFO - Finished evaluating config 1 -- new best with loss -117582.000000
+2025-06-29 22:30:05,832 - INFO - Start evaluating config 2
+2025-06-29 22:31:07,377 - INFO - Finished evaluating config 2 -- new best with loss -117764.000000
+2025-06-29 22:31:07,421 - INFO - Start evaluating config 3
+2025-06-29 22:31:08,129 - INFO - Finished evaluating config 3
+2025-06-29 22:31:08,207 - INFO - Start evaluating config 4
+2025-06-29 22:31:11,656 - INFO - Finished evaluating config 4 -- new best with loss -118182.000000
+2025-06-29 22:31:11,710 - INFO - Start evaluating config 5
+2025-06-29 22:31:32,403 - INFO - Finished evaluating config 5
+2025-06-29 22:31:32,482 - INFO - Start evaluating config 6
+2025-06-29 22:31:34,845 - INFO - Finished evaluating config 6
+2025-06-29 22:31:34,943 - INFO - Start evaluating config 7
+2025-06-29 22:31:44,990 - INFO - Finished evaluating config 7
+2025-06-29 22:31:45,055 - INFO - Start evaluating config 8
+2025-06-29 22:31:51,805 - INFO - Finished evaluating config 8
+2025-06-29 22:31:51,923 - INFO - Start evaluating config 9
+2025-06-29 22:32:04,795 - INFO - Finished evaluating config 9
+2025-06-29 22:32:04,923 - INFO - Start evaluating config 10
+2025-06-29 22:32:10,376 - INFO - Finished evaluating config 10
+2025-06-29 22:32:10,396 - INFO - Maximum total evaluations is reached, shutting down
+2025-06-29 22:32:10,790 - INFO - 
+NePS search finished.
+2025-06-29 22:32:10,791 - INFO - Check the directory 'neps_results_B50k_L400_D28_output' for detailed results and logs.
+2025-06-29 22:32:10,959 - INFO - 
+--- Best Configuration Found by NePS ---
+2025-06-29 22:32:10,970 - INFO - Config ID: 4
+2025-06-29 22:32:10,975 - INFO - Best Loss (Minimized -Fitness): -118182.0000
+2025-06-29 22:32:10,981 - INFO - Corresponding Fitness Score: 118182.0000
+2025-06-29 22:32:10,988 - INFO - Hyperparameters:
+2025-06-29 22:32:11,003 - INFO -   hill_climbing_steps: 28
+2025-06-29 22:32:11,006 - INFO -   mutation_prob: 0.03770148537186867
+2025-06-29 22:32:11,017 - INFO -   population_size: 50
+2025-06-29 22:32:11,031 - INFO -   tabu_length: 15
+2025-06-29 22:32:11,037 - INFO - Runtime for this config: 3.41s
