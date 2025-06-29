@@ -16,3 +16,5 @@ Starting NePS hyperparameter search...
 2025-06-29 09:39:03,038 - INFO - Start evaluating config 5
 2025-06-29 09:50:09,145 - INFO - Finished evaluating config 5 -- new best with loss -10215019.000000
 2025-06-29 09:50:09,179 - INFO - Start evaluating config 6
+2025-06-29 12:40:10,292 - INFO - Finished evaluating config 6 -- new best with loss -10480970.000000
+2025-06-29 12:40:10,344 - INFO - Start evaluating config 7
