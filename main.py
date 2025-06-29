@@ -181,7 +181,7 @@ if __name__ == "__main__":
     parser.add_argument("--input_file", type=str, default="B50k_L400_D28.txt", help="Input File")
     parser.add_argument("--max_evaluations", type=int, default=10,
                         help="Maximum number of hyperparameter configurations to try.")
-    parser.add_argument("--neps_root_dir", type=str, default="neps_results_B50k_L400_D28_output",
+    parser.add_argument("--neps_root_dir", type=str, default="neps_results_B50k_L400_D28_output_second_patient_10",
                         help="Directory to store NePS results.")
  
     args = parser.parse_args()

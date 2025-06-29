@@ -1,0 +1,10 @@
+cost: 18.648662567138672
+info_dict:
+  fitness_score: 116325
+  hill_climbing_steps: 10
+  input_file: B50k_L400_D28.txt
+  mutation_prob: 0.4492359400058096
+  population_size: 28
+  runtime: 18.648662567138672
+  tabu_length: 2
+loss: -116325.0

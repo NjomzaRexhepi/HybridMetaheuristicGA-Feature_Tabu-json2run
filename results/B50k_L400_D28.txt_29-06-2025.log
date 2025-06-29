@@ -40,3 +40,45 @@ NePS search finished.
 2025-06-29 22:32:11,017 - INFO -   population_size: 50
 2025-06-29 22:32:11,031 - INFO -   tabu_length: 15
 2025-06-29 22:32:11,037 - INFO - Runtime for this config: 3.41s
+2025-06-29 22:35:21,636 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-29 22:35:21,637 - INFO - Max evaluations: 10
+2025-06-29 22:35:21,638 - INFO - Results will be stored in: neps_results_B50k_L400_D28_output_second_patient_10
+2025-06-29 22:35:21,638 - INFO - Starting neps.run using root directory neps_results_B50k_L400_D28_output_second_patient_10
+2025-06-29 22:35:21,644 - INFO - Running bayesian_optimization as the searcher
+2025-06-29 22:35:21,644 - INFO - Strategy: bayesian_optimization
+2025-06-29 22:35:21,731 - INFO - Start evaluating config 1
+2025-06-29 22:35:43,722 - INFO - Finished evaluating config 1 -- new best with loss -112522.000000
+2025-06-29 22:35:43,806 - INFO - Start evaluating config 2
+2025-06-29 22:36:02,481 - INFO - Finished evaluating config 2 -- new best with loss -116325.000000
+2025-06-29 22:36:02,517 - INFO - Start evaluating config 3
+2025-06-29 22:36:03,471 - INFO - Finished evaluating config 3 -- new best with loss -120021.000000
+2025-06-29 22:36:03,492 - INFO - Start evaluating config 4
+2025-06-29 22:36:53,774 - INFO - Finished evaluating config 4
+2025-06-29 22:36:53,819 - INFO - Start evaluating config 5
+2025-06-29 22:37:54,348 - INFO - Finished evaluating config 5
+2025-06-29 22:37:54,362 - INFO - Start evaluating config 6
+2025-06-29 22:38:23,821 - INFO - Finished evaluating config 6
+2025-06-29 22:38:23,847 - INFO - Start evaluating config 7
+2025-06-29 22:41:24,898 - INFO - Finished evaluating config 7
+2025-06-29 22:41:25,005 - INFO - Start evaluating config 8
+2025-06-29 22:41:41,075 - INFO - Finished evaluating config 8
+2025-06-29 22:41:41,168 - INFO - Start evaluating config 9
+2025-06-29 22:49:05,362 - INFO - Finished evaluating config 9
+2025-06-29 22:49:05,459 - INFO - Start evaluating config 10
+2025-06-29 22:52:36,516 - INFO - Finished evaluating config 10
+2025-06-29 22:52:36,557 - INFO - Maximum total evaluations is reached, shutting down
+2025-06-29 22:52:36,980 - INFO - 
+NePS search finished.
+2025-06-29 22:52:36,982 - INFO - Check the directory 'neps_results_B50k_L400_D28_output_second_patient_10' for detailed results and logs.
+2025-06-29 22:52:37,290 - INFO - 
+--- Best Configuration Found by NePS ---
+2025-06-29 22:52:37,314 - INFO - Config ID: 3
+2025-06-29 22:52:37,317 - INFO - Best Loss (Minimized -Fitness): -120021.0000
+2025-06-29 22:52:37,319 - INFO - Corresponding Fitness Score: 120021.0000
+2025-06-29 22:52:37,321 - INFO - Hyperparameters:
+2025-06-29 22:52:37,323 - INFO -   hill_climbing_steps: 10
+2025-06-29 22:52:37,324 - INFO -   mutation_prob: 0.14456424550548952
+2025-06-29 22:52:37,325 - INFO -   population_size: 12
+2025-06-29 22:52:37,327 - INFO -   tabu_length: 15
+2025-06-29 22:52:37,334 - INFO - Runtime for this config: 0.94s
