@@ -1,0 +1,10 @@
+cost: 76.48325777053833
+info_dict:
+  fitness_score: 1251479
+  hill_climbing_steps: 26
+  input_file: B95k_L2k_D28.txt
+  mutation_prob: 0.24898577800399144
+  population_size: 16
+  runtime: 76.48325777053833
+  tabu_length: 7
+loss: -1251479.0
