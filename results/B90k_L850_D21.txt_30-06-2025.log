@@ -1,0 +1,84 @@
+2025-06-30 23:37:30,064 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-30 23:37:30,065 - INFO - Max evaluations: 10
+2025-06-30 23:37:30,065 - INFO - Results will be stored in: neps_results_B90k_L850_D21_output_second
+2025-06-30 23:37:30,066 - INFO - Starting neps.run using root directory neps_results_B90k_L850_D21_output_second
+2025-06-30 23:37:30,069 - INFO - Running bayesian_optimization as the searcher
+2025-06-30 23:37:30,069 - INFO - Strategy: bayesian_optimization
+2025-06-30 23:37:30,103 - INFO - Start evaluating config 1
+2025-06-30 23:37:30,992 - INFO - Finished evaluating config 1 -- new best with loss -869.000000
+2025-06-30 23:37:31,012 - INFO - Start evaluating config 2
+2025-06-30 23:37:33,334 - INFO - Finished evaluating config 2
+2025-06-30 23:37:33,375 - INFO - Start evaluating config 3
+2025-06-30 23:37:51,347 - INFO - Finished evaluating config 3
+2025-06-30 23:37:51,371 - INFO - Start evaluating config 4
+2025-06-30 23:37:54,033 - INFO - Finished evaluating config 4
+2025-06-30 23:37:54,080 - INFO - Start evaluating config 5
+2025-06-30 23:38:01,587 - INFO - Finished evaluating config 5
+2025-06-30 23:38:01,609 - INFO - Start evaluating config 6
+2025-06-30 23:38:03,672 - INFO - Finished evaluating config 6
+2025-06-30 23:38:03,697 - INFO - Start evaluating config 7
+2025-06-30 23:38:07,501 - INFO - Finished evaluating config 7
+2025-06-30 23:38:07,550 - INFO - Start evaluating config 8
+2025-06-30 23:38:35,669 - INFO - Finished evaluating config 8
+2025-06-30 23:38:35,700 - INFO - Start evaluating config 9
+2025-06-30 23:38:36,405 - INFO - Finished evaluating config 9
+2025-06-30 23:38:36,435 - INFO - Start evaluating config 10
+2025-06-30 23:38:37,934 - INFO - Finished evaluating config 10
+2025-06-30 23:38:37,944 - INFO - Maximum total evaluations is reached, shutting down
+2025-06-30 23:38:38,087 - INFO - 
+NePS search finished.
+2025-06-30 23:38:38,088 - INFO - Check the directory 'neps_results_B90k_L850_D21_output_second' for detailed results and logs.
+2025-06-30 23:38:38,144 - INFO - 
+--- Best Configuration Found by NePS ---
+2025-06-30 23:38:38,146 - INFO - Config ID: 1
+2025-06-30 23:38:38,146 - INFO - Best Loss (Minimized -Fitness): -869.0000
+2025-06-30 23:38:38,146 - INFO - Corresponding Fitness Score: 869.0000
+2025-06-30 23:38:38,147 - INFO - Hyperparameters:
+2025-06-30 23:38:38,147 - INFO -   hill_climbing_steps: 23
+2025-06-30 23:38:38,147 - INFO -   mutation_prob: 0.022561778276897523
+2025-06-30 23:38:38,149 - INFO -   population_size: 58
+2025-06-30 23:38:38,150 - INFO -   tabu_length: 11
+2025-06-30 23:38:38,151 - INFO - Runtime for this config: 0.54s
+2025-06-30 23:39:58,392 - INFO - 
+Starting NePS hyperparameter search...
+2025-06-30 23:39:58,395 - INFO - Max evaluations: 10
+2025-06-30 23:39:58,397 - INFO - Results will be stored in: neps_results_B90k_L850_D21_output
+2025-06-30 23:39:58,397 - INFO - Starting neps.run using root directory neps_results_B90k_L850_D21_output
+2025-06-30 23:39:58,412 - INFO - Running bayesian_optimization as the searcher
+2025-06-30 23:39:58,413 - INFO - Strategy: bayesian_optimization
+2025-06-30 23:39:58,578 - INFO - Start evaluating config 1
+2025-06-30 23:40:40,776 - INFO - Finished evaluating config 1 -- new best with loss -869.000000
+2025-06-30 23:40:40,876 - INFO - Start evaluating config 2
+2025-06-30 23:40:45,559 - INFO - Finished evaluating config 2
+2025-06-30 23:40:45,617 - INFO - Start evaluating config 3
+2025-06-30 23:44:05,303 - INFO - Finished evaluating config 3
+2025-06-30 23:44:05,362 - INFO - Start evaluating config 4
+2025-06-30 23:44:18,872 - INFO - Finished evaluating config 4
+2025-06-30 23:44:18,921 - INFO - Start evaluating config 5
+2025-06-30 23:44:32,763 - INFO - Finished evaluating config 5
+2025-06-30 23:44:32,794 - INFO - Start evaluating config 6
+2025-06-30 23:44:42,783 - INFO - Finished evaluating config 6
+2025-06-30 23:44:42,836 - INFO - Start evaluating config 7
+2025-06-30 23:44:45,364 - INFO - Finished evaluating config 7
+2025-06-30 23:44:45,414 - INFO - Start evaluating config 8
+2025-06-30 23:45:01,905 - INFO - Finished evaluating config 8
+2025-06-30 23:45:01,939 - INFO - Start evaluating config 9
+2025-06-30 23:45:22,273 - INFO - Finished evaluating config 9
+2025-06-30 23:45:22,302 - INFO - Start evaluating config 10
+2025-06-30 23:45:22,921 - INFO - Finished evaluating config 10
+2025-06-30 23:45:22,927 - INFO - Maximum total evaluations is reached, shutting down
+2025-06-30 23:45:23,034 - INFO - 
+NePS search finished.
+2025-06-30 23:45:23,035 - INFO - Check the directory 'neps_results_B90k_L850_D21_output' for detailed results and logs.
+2025-06-30 23:45:23,131 - INFO - 
+--- Best Configuration Found by NePS ---
+2025-06-30 23:45:23,131 - INFO - Config ID: 1
+2025-06-30 23:45:23,132 - INFO - Best Loss (Minimized -Fitness): -869.0000
+2025-06-30 23:45:23,132 - INFO - Corresponding Fitness Score: 869.0000
+2025-06-30 23:45:23,133 - INFO - Hyperparameters:
+2025-06-30 23:45:23,133 - INFO -   hill_climbing_steps: 7
+2025-06-30 23:45:23,134 - INFO -   mutation_prob: 0.283818539410849
+2025-06-30 23:45:23,136 - INFO -   population_size: 92
+2025-06-30 23:45:23,137 - INFO -   tabu_length: 7
+2025-06-30 23:45:23,139 - INFO - Runtime for this config: 40.74s

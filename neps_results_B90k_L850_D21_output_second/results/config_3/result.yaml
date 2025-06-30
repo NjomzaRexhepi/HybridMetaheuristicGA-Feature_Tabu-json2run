@@ -1,0 +1,10 @@
+cost: 17.95795226097107
+info_dict:
+  fitness_score: 869
+  hill_climbing_steps: 30
+  input_file: B90k_L850_D21.txt
+  mutation_prob: 0.3612513559569343
+  population_size: 94
+  runtime: 17.95795226097107
+  tabu_length: 10
+loss: -869.0
