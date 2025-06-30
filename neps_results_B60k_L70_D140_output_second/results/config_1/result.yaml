@@ -1,0 +1,10 @@
+cost: 46250.520542144775
+info_dict:
+  fitness_score: 14566554
+  hill_climbing_steps: 30
+  input_file: B60k_L70_D140.txt
+  mutation_prob: 0.33831513998987633
+  population_size: 59
+  runtime: 46250.520542144775
+  tabu_length: 7
+loss: -14566554.0
