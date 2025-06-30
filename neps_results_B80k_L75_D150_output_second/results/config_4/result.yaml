@@ -1,0 +1,10 @@
+cost: 2458.1385369300842
+info_dict:
+  fitness_score: 24676474
+  hill_climbing_steps: 35
+  input_file: B80k_L75_D150.txt
+  mutation_prob: 0.08232452347210066
+  population_size: 91
+  runtime: 2458.1385369300842
+  tabu_length: 5
+loss: -24676474.0
