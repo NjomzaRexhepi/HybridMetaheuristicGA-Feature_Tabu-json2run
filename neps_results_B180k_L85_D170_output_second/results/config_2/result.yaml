@@ -1,0 +1,10 @@
+cost: 46232.10646486282
+info_dict:
+  fitness_score: 22927307
+  hill_climbing_steps: 37
+  input_file: B180k_L85_D170.txt
+  mutation_prob: 0.4593937134731559
+  population_size: 77
+  runtime: 46232.10646486282
+  tabu_length: 7
+loss: -22927307.0
