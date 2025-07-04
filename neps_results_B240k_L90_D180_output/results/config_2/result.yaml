@@ -1,0 +1,10 @@
+cost: 12534.695680141449
+info_dict:
+  fitness_score: 30110327
+  hill_climbing_steps: 31
+  input_file: B240k_L90_D180.txt
+  mutation_prob: 0.04221608032225648
+  population_size: 57
+  runtime: 12534.695680141449
+  tabu_length: 12
+loss: -30110327.0
