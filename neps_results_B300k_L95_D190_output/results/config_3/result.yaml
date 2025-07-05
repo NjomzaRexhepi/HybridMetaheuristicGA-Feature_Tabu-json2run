@@ -1,0 +1,10 @@
+cost: 3259.6958351135254
+info_dict:
+  fitness_score: 28087171
+  hill_climbing_steps: 21
+  input_file: B300k_L95_D190.txt
+  mutation_prob: 0.20728561963207592
+  population_size: 56
+  runtime: 3259.6958351135254
+  tabu_length: 6
+loss: -28087171.0
