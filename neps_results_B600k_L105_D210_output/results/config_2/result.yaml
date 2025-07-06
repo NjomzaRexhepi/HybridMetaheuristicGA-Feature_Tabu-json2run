@@ -1,0 +1,10 @@
+cost: 73305.3861272335
+info_dict:
+  fitness_score: 34810275
+  hill_climbing_steps: 24
+  input_file: B600k_L105_D210.txt
+  mutation_prob: 0.43772446471879495
+  population_size: 100
+  runtime: 73305.3861272335
+  tabu_length: 2
+loss: -34810275.0
