@@ -1,0 +1,10 @@
+cost: 3921.8507380485535
+info_dict:
+  fitness_score: 44099814
+  hill_climbing_steps: 34
+  input_file: B1000k_L115_D230.txt
+  mutation_prob: 0.1470894112817522
+  population_size: 26
+  runtime: 3921.8507380485535
+  tabu_length: 9
+loss: -44099814.0
