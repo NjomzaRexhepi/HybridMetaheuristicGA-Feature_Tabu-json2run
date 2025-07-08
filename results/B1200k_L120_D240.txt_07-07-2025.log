@@ -1,0 +1,43 @@
+2025-07-07 06:40:48,266 - INFO - 
+Starting NePS hyperparameter search...
+2025-07-07 06:40:48,266 - INFO - Max evaluations: 10
+2025-07-07 06:40:48,267 - INFO - Results will be stored in: neps_results_B1200k_L120_D240_output
+2025-07-07 06:40:48,267 - INFO - Starting neps.run using root directory neps_results_B1200k_L120_D240_output
+2025-07-07 06:40:48,275 - INFO - Running bayesian_optimization as the searcher
+2025-07-07 06:40:48,275 - INFO - Strategy: bayesian_optimization
+2025-07-07 06:40:48,337 - INFO - Start evaluating config 1
+2025-07-07 20:38:03,664 - INFO - Finished evaluating config 1 -- new best with loss -35926834.000000
+2025-07-07 20:38:03,963 - INFO - Start evaluating config 2
+
+
+PS C:\Users\njomz\source\repos\HybridMetaheuristicGA-Feature_Tabu-json2run> & C:/Users/njomz/anaconda3/envs/pytorch_schedulers/python.exe c:/Users/njomz/source/repos/HybridMetaheuristicGA-Feature_Tabu-json2run/main.py
+Cuda: True
+Running Neural Pipeline Search for Genetic Algorithm Hyperparameter Optimization
+
+Starting NePS hyperparameter search...
+Max evaluations: 10
+Results will be stored in: neps_results_B1200k_L120_D240_output
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 94
+  mutation_prob: 0.4994
+  hill_climbing_steps: 12
+  tabu_length: 3
+Gen 0: Best fitness = 50576582
+Gen 1: Best fitness = 35926834
+Gen 2: Best fitness = 35926834
+Gen 3: Best fitness = 35926834
+Gen 4: Best fitness = 35926834
+Early stopping: No improvement for 4 generations.
+[NePS EVAL] Fitness: 35926834, Runtime: 50233.43s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 12
+  mutation_prob: 0.4118
+  hill_climbing_steps: 34
+  tabu_length: 9
+Gen 0: Best fitness = 46375196
+Gen 1: Best fitness = 46375196
+Gen 2: Best fitness = 42373102
+Gen 3: Best fitness = 42373102
+Gen 4: Best fitness = 42373102

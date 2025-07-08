@@ -1,0 +1,10 @@
+cost: 50233.43243122101
+info_dict:
+  fitness_score: 35926834
+  hill_climbing_steps: 12
+  input_file: B1200k_L120_D240.txt
+  mutation_prob: 0.49937847589637363
+  population_size: 94
+  runtime: 50233.43243122101
+  tabu_length: 3
+loss: -35926834.0
