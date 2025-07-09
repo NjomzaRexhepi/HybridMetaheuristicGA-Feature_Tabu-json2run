@@ -1,0 +1,10 @@
+cost: 48931.8833231926
+info_dict:
+  fitness_score: 42020211
+  hill_climbing_steps: 32
+  input_file: B1400k_L125_D250.txt
+  mutation_prob: 0.454357992317648
+  population_size: 59
+  runtime: 48931.8833231926
+  tabu_length: 7
+loss: -42020211.0
