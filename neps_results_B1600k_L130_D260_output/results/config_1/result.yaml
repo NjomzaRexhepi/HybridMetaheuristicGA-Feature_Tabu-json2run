@@ -1,0 +1,10 @@
+cost: 52304.38374853134
+info_dict:
+  fitness_score: 42593658
+  hill_climbing_steps: 29
+  input_file: B1600k_L130_D260.txt
+  mutation_prob: 0.06403310627825622
+  population_size: 67
+  runtime: 52304.38374853134
+  tabu_length: 1
+loss: -42593658.0
