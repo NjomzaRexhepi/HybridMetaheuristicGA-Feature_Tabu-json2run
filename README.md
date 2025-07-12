@@ -57,9 +57,9 @@ Generates an initial feasible solution using the GRASP (Greedy Randomized Adapti
 
 #### `solve()` Method
 The main loop of the genetic algorithm, which includes:
-- **Selection**
-- **Crossover**
-- **Mutation using Tabu Search**
+- **Tournament Selection**
+- **Union Crossover**
+- **Mutation using Featured Tabu Search**
 - **Elitism (keeping the best solution)**
 - **Early stopping** based on the number of generations without improvement.
 
