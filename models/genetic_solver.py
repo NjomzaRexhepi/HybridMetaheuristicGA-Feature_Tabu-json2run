@@ -20,11 +20,6 @@ class GeneticAlgorithmSolver:
         #     self.mutation_prob = 1
         #     self.hill_climbing_steps = 100 
         #     self.solver = Solver()
- 
-
-         
-         #  This constructor sets up all the necessary configuration for running a genetic algorithm, including support for GPU acceleration if available. 
-         #  The parameters are flexible, allowing for easy experimentation.
        
        # TODO: Uncomment if you want to use neps and GPU
         def __init__(self, instance: InstanceData, initial_solution: Solution,
@@ -90,7 +85,7 @@ class GeneticAlgorithmSolver:
             best_score = best_solution.fitness_score
 
             no_improvement_counter = 0
-            patience = 4
+            patience = 10
 
             for generation in range(self.population_size):
                 print(f"Gen {generation}: Best fitness = {best_score}")
@@ -160,6 +155,27 @@ class GeneticAlgorithmSolver:
             return max(tournament, key=lambda x: x.fitness_score)
         
         def union_crossover(self, parent1: Solution, parent2: Solution) -> Tuple[Solution, Solution]:
+            """
+            Combines the signed libraries from two parent solutions into new offspring using a union-based crossover strategy.
+        
+            This method creates two offspring solutions by taking the union of both parents' signed libraries,
+            preserving their order (normal and reversed) to introduce diversity. For each offspring, it attempts
+            to build a valid schedule of libraries and scanned books while respecting time and scanning constraints.
+        
+            Key Steps:
+                - Combine signed libraries from both parents (remove duplicates while preserving order).
+                - Attempt to build a feasible solution from the combined list (forward and reverse order).
+                - For each library, scan as many high-value books as possible within the time limit.
+                - Filter out invalid or redundant libraries and books.
+                - Return the two constructed offspring.
+        
+            Args:
+                parent1 (Solution): The first parent solution.
+                parent2 (Solution): The second parent solution.
+        
+            Returns:
+                Tuple[Solution, Solution]: Two offspring solutions generated from the parents.
+            """
             try:
                 all_libs = list(dict.fromkeys(parent1.signed_libraries + parent2.signed_libraries))
 
