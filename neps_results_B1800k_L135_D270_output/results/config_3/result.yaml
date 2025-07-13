@@ -1,0 +1,10 @@
+cost: 216.58402276039124
+info_dict:
+  fitness_score: 51997148
+  hill_climbing_steps: 1
+  input_file: B1800k_L135_D270.txt
+  mutation_prob: 0.30543285887638505
+  population_size: 40
+  runtime: 216.58402276039124
+  tabu_length: 1
+loss: -51997148.0
