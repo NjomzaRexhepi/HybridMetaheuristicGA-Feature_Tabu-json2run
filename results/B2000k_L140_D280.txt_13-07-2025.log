@@ -1,0 +1,75 @@
+2025-07-13 08:10:29,312 - INFO - 
+Starting NePS hyperparameter search...
+2025-07-13 08:10:29,312 - INFO - Max evaluations: 10
+2025-07-13 08:10:29,313 - INFO - Results will be stored in: neps_results_B2000k_L140_D280_output
+2025-07-13 08:10:29,313 - INFO - Starting neps.run using root directory neps_results_B2000k_L140_D280_output
+2025-07-13 08:10:29,315 - INFO - Running bayesian_optimization as the searcher
+2025-07-13 08:10:29,315 - INFO - Strategy: bayesian_optimization
+2025-07-13 08:10:29,368 - INFO - Start evaluating config 1
+2025-07-13 13:52:15,134 - INFO - Finished evaluating config 1 -- new best with loss -51677438.000000
+2025-07-13 13:52:15,531 - INFO - Start evaluating config 2
+2025-07-14 09:37:02,160 - INFO - Finished evaluating config 2 -- new best with loss -53080588.000000
+2025-07-14 09:37:02,210 - INFO - Start evaluating config 3
+
+
+
+PS C:\Users\njomz\source\repos\HybridMetaheuristicGA-Feature_Tabu-json2run> & C:/Users/njomz/anaconda3/envs/pytorch_schedulers/python.exe c:/Users/njomz/source/repos/HybridMetaheuristicGA-Feature_Tabu-json2run/main.py
+Cuda: True
+Running Neural Pipeline Search for Genetic Algorithm Hyperparameter Optimization
+
+Starting NePS hyperparameter search...
+Max evaluations: 10
+Results will be stored in: neps_results_B2000k_L140_D280_output
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 33
+  mutation_prob: 0.2296
+  hill_climbing_steps: 36
+  tabu_length: 6
+Gen 0: Best fitness = 54780713
+Gen 1: Best fitness = 52713312
+Gen 2: Best fitness = 51677438
+Gen 3: Best fitness = 51677438
+Gen 4: Best fitness = 51677438
+Gen 5: Best fitness = 51677438
+Gen 6: Best fitness = 51677438
+Gen 7: Best fitness = 51677438
+Gen 8: Best fitness = 51677438
+Gen 9: Best fitness = 51677438
+Gen 10: Best fitness = 51677438
+Gen 11: Best fitness = 51677438
+Early stopping: No improvement for 10 generations.
+[NePS EVAL] Fitness: 51677438, Runtime: 20503.20s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 93
+  mutation_prob: 0.1170
+  hill_climbing_steps: 30
+  tabu_length: 9
+Gen 0: Best fitness = 58310022
+Gen 1: Best fitness = 54779764
+Gen 2: Best fitness = 53080588
+Gen 3: Best fitness = 53080588
+Gen 4: Best fitness = 53080588
+Gen 5: Best fitness = 53080588
+Gen 6: Best fitness = 53080588
+Gen 7: Best fitness = 53080588
+Gen 8: Best fitness = 53080588
+Gen 9: Best fitness = 53080588
+Gen 10: Best fitness = 53080588
+Gen 11: Best fitness = 53080588
+Early stopping: No improvement for 10 generations.
+[NePS EVAL] Fitness: 53080588, Runtime: 71086.58s
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 79
+  mutation_prob: 0.2414
+  hill_climbing_steps: 38
+  tabu_length: 12
+Gen 0: Best fitness = 56789285
+Gen 1: Best fitness = 54779764
+Gen 2: Best fitness = 52840073
+Gen 3: Best fitness = 51962496
+Gen 4: Best fitness = 51962496
+Gen 5: Best fitness = 51962496
+Gen 6: Best fitness = 51962496

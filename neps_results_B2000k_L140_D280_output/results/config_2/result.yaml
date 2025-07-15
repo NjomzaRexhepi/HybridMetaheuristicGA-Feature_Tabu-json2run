@@ -1,0 +1,10 @@
+cost: 71086.57911324501
+info_dict:
+  fitness_score: 53080588
+  hill_climbing_steps: 30
+  input_file: B2000k_L140_D280.txt
+  mutation_prob: 0.11696564024569113
+  population_size: 93
+  runtime: 71086.57911324501
+  tabu_length: 9
+loss: -53080588.0
