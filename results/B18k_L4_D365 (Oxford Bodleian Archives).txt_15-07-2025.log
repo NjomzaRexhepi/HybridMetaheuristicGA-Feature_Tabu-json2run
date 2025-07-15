@@ -1,0 +1,42 @@
+2025-07-15 19:44:36,234 - INFO - 
+Starting NePS hyperparameter search...
+2025-07-15 19:44:36,234 - INFO - Max evaluations: 10
+2025-07-15 19:44:36,235 - INFO - Results will be stored in: neps_results_B18k_L4_D365 (Oxford Bodleian Archives)_output
+2025-07-15 19:44:36,235 - INFO - Starting neps.run using root directory neps_results_B18k_L4_D365 (Oxford Bodleian Archives)_output
+2025-07-15 19:44:36,241 - INFO - Running bayesian_optimization as the searcher
+2025-07-15 19:44:36,242 - INFO - Strategy: bayesian_optimization
+2025-07-15 19:44:36,306 - INFO - Start evaluating config 1
+2025-07-15 19:45:47,698 - INFO - Finished evaluating config 1 -- new best with loss -7979867.000000
+2025-07-15 19:45:47,740 - INFO - Start evaluating config 2
+2025-07-15 19:51:34,372 - INFO - Finished evaluating config 2
+2025-07-15 19:51:34,405 - INFO - Start evaluating config 3
+2025-07-15 20:16:09,140 - INFO - Finished evaluating config 3
+2025-07-15 20:16:09,205 - INFO - Start evaluating config 4
+2025-07-15 20:18:38,172 - INFO - Finished evaluating config 4
+2025-07-15 20:18:38,226 - INFO - Start evaluating config 5
+2025-07-15 21:02:13,352 - INFO - Finished evaluating config 5
+2025-07-15 21:02:13,409 - INFO - Start evaluating config 6
+2025-07-15 21:26:16,785 - INFO - Finished evaluating config 6
+2025-07-15 21:26:16,824 - INFO - Start evaluating config 7
+2025-07-15 21:29:47,554 - INFO - Finished evaluating config 7
+2025-07-15 21:29:47,595 - INFO - Start evaluating config 8
+2025-07-15 21:51:48,165 - INFO - Finished evaluating config 8
+2025-07-15 21:51:48,212 - INFO - Start evaluating config 9
+2025-07-15 21:57:34,095 - INFO - Finished evaluating config 9
+2025-07-15 21:57:34,150 - INFO - Start evaluating config 10
+2025-07-15 22:13:07,006 - INFO - Finished evaluating config 10
+2025-07-15 22:13:07,011 - INFO - Maximum total evaluations is reached, shutting down
+2025-07-15 22:13:07,188 - INFO - 
+NePS search finished.
+2025-07-15 22:13:07,190 - INFO - Check the directory 'neps_results_B18k_L4_D365 (Oxford Bodleian Archives)_output' for detailed results and logs.
+2025-07-15 22:13:07,239 - INFO - 
+--- Best Configuration Found by NePS ---
+2025-07-15 22:13:07,240 - INFO - Config ID: 1
+2025-07-15 22:13:07,240 - INFO - Best Loss (Minimized -Fitness): -7979867.0000
+2025-07-15 22:13:07,240 - INFO - Corresponding Fitness Score: 7979867.0000
+2025-07-15 22:13:07,241 - INFO - Hyperparameters:
+2025-07-15 22:13:07,241 - INFO -   hill_climbing_steps: 5
+2025-07-15 22:13:07,241 - INFO -   mutation_prob: 0.27303233599585336
+2025-07-15 22:13:07,241 - INFO -   population_size: 40
+2025-07-15 22:13:07,241 - INFO -   tabu_length: 2
+2025-07-15 22:13:07,242 - INFO - Runtime for this config: 70.03s

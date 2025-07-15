@@ -1,0 +1,10 @@
+cost: 932.8463122844696
+info_dict:
+  fitness_score: 7979867
+  hill_climbing_steps: 35
+  input_file: B18k_L4_D365 (Oxford Bodleian Archives).txt
+  mutation_prob: 0.359905014263757
+  population_size: 50
+  runtime: 932.8463122844696
+  tabu_length: 3
+loss: -7979867.0
