@@ -78,11 +78,10 @@ class Solver:
         S.calculate_fitness_score(data.scores)
         Best = copy.deepcopy(S)
  
-        L = deque(maxlen=tabu_max_len)  # Stores (move_signature, timestamp)
+        L = deque(maxlen=tabu_max_len)
         tabu_set = set()
         c = 0
- 
-        # Define tweak functions that also return a move signature
+
         tweak_functions = [
             self.tweak_solution_swap_last_book_tabu,
             self.tweak_solution_swap_same_books_tabu,
@@ -103,14 +102,13 @@ class Solver:
                         return R, move_signature
                 except:
                     continue
-            # fallback
+                
             fallback_copy = copy.deepcopy(S_ref)
             return fallback_copy, ('fallback',)
  
         for iteration in range(max_iterations):
             c += 1
- 
-            # Clean old tabu entries
+
             L = deque([(move, ts) for move, ts in L if c - ts <= tabu_max_len], maxlen=tabu_max_len)
             tabu_set = set(m for m, _ in L)
  
