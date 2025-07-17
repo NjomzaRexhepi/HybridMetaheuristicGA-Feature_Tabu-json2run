@@ -178,10 +178,10 @@ if __name__ == "__main__":
     print("Cuda:", torch.cuda.is_available())
     print("Running Neural Pipeline Search for Genetic Algorithm Hyperparameter Optimization")
     parser = argparse.ArgumentParser(description="Run Genetic Algorithm with NePS hyperparameter optimization.")
-    parser.add_argument("--input_file", type=str, default="B18k_L4_D365 (Oxford Bodleian Archives).txt", help="Input File")
+    parser.add_argument("--input_file", type=str, default="B150k_L92_730D (New York Public Library System).txt", help="Input File")
     parser.add_argument("--max_evaluations", type=int, default=10,
                         help="Maximum number of hyperparameter configurations to try.")
-    parser.add_argument("--neps_root_dir", type=str, default="neps_results_B18k_L4_D365 (Oxford Bodleian Archives)_output",
+    parser.add_argument("--neps_root_dir", type=str, default="neps_results_B150k_L92_730D (New York Public Library System)_output",
                         help="Directory to store NePS results.")
  
     args = parser.parse_args()
@@ -206,9 +206,9 @@ if __name__ == "__main__":
  
     # better for smaller files
     # pipeline_space = dict(
-    #     population_size=neps.IntegerParameter(lower=10, upper=500, log=False),  
+    #     population_size=neps.IntegerParameter(lower=10, upper=5000, log=False),  
     #     mutation_prob=neps.FloatParameter(lower=0.01, upper=0.8, log=False),  
-    #     hill_climbing_steps=neps.IntegerParameter(lower=10, upper=100, log=False),
+    #     hill_climbing_steps=neps.IntegerParameter(lower=10, upper=10000, log=False),
     #     # Fewer steps to avoid long refinements
     #     tabu_length=neps.IntegerParameter(lower=0, upper=20, log=False)  
     # )

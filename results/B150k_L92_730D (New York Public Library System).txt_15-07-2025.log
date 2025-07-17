@@ -1,0 +1,52 @@
+2025-07-15 22:41:40,329 - INFO - 
+Starting NePS hyperparameter search...
+2025-07-15 22:41:40,330 - INFO - Max evaluations: 10
+2025-07-15 22:41:40,330 - INFO - Results will be stored in: neps_results_B150k_L92_730D (New York Public Library System)_output
+2025-07-15 22:41:40,330 - INFO - Starting neps.run using root directory neps_results_B150k_L92_730D (New York Public Library System)_output
+2025-07-15 22:41:40,333 - INFO - Running bayesian_optimization as the searcher
+2025-07-15 22:41:40,333 - INFO - Strategy: bayesian_optimization
+2025-07-15 22:41:40,374 - INFO - Start evaluating config 1
+2025-07-15 23:58:21,501 - INFO - Finished evaluating config 1 -- new best with loss -28005056.000000
+2025-07-15 23:58:21,591 - INFO - Start evaluating config 2
+
+
+
+PS C:\Users\njomz\source\repos\HybridMetaheuristicGA-Feature_Tabu-json2run> & C:/Users/njomz/anaconda3/envs/pytorch_schedulers/python.exe c:/Users/njomz/source/repos/HybridMetaheuristicGA-Feature_Tabu-json2run/main.py
+Cuda: True
+Running Neural Pipeline Search for Genetic Algorithm Hyperparameter Optimization
+
+Starting NePS hyperparameter search...
+Max evaluations: 10
+Results will be stored in: neps_results_B150k_L92_730D (New York Public Library System)_output
+
+[NePS EVAL] Starting evaluation with params:
+  population_size: 15
+  mutation_prob: 0.0740
+  hill_climbing_steps: 28
+  tabu_length: 11
+Gen 0: Best fitness = 28935458
+Gen 1: Best fitness = 28005056
+Gen 2: Best fitness = 28005056
+Gen 3: Best fitness = 28005056
+Gen 4: Best fitness = 28005056
+Gen 5: Best fitness = 28005056
+Gen 6: Best fitness = 28005056
+Gen 7: Best fitness = 28005056
+Gen 8: Best fitness = 28005056
+Gen 9: Best fitness = 28005056
+Gen 10: Best fitness = 28005056
+Early stopping: No improvement for 10 generations.
+[NePS EVAL] Fitness: 28005056, Runtime: 4599.63s
+[NePS EVAL] Starting evaluation with params:
+  population_size: 66
+  mutation_prob: 0.2204
+  hill_climbing_steps: 38
+  tabu_length: 5
+Gen 0: Best fitness = 28823035
+Gen 1: Best fitness = 28008377
+Gen 2: Best fitness = 26871197
+Gen 3: Best fitness = 26650420
+Gen 4: Best fitness = 26650420
+Gen 5: Best fitness = 26650420
+Gen 6: Best fitness = 26650420
+Gen 7: Best fitness = 26650420

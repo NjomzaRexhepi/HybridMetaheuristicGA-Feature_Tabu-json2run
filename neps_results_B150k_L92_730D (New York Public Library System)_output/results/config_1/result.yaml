@@ -1,0 +1,10 @@
+cost: 4599.634429693222
+info_dict:
+  fitness_score: 28005056
+  hill_climbing_steps: 28
+  input_file: B150k_L92_730D (New York Public Library System).txt
+  mutation_prob: 0.07397317978045555
+  population_size: 15
+  runtime: 4599.634429693222
+  tabu_length: 11
+loss: -28005056.0
